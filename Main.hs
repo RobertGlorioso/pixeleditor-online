@@ -4,8 +4,6 @@
 
 module Main where
 
-import Store
-
 import Miso
 import Miso.Subscription.Keyboard
 import Model

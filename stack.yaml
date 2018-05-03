@@ -6,9 +6,6 @@ packages:
  - '.'
 extra-deps:
  - miso-0.10.0.0
-# - grid-7.8.9
-# - streaming-png-0.1.0.0
-# - JuicyPixels-3.2.9.3
  
 setup-info:
   ghcjs:

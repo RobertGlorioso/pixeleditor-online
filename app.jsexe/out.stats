@@ -1,35 +1,28 @@
 code size summary per package:
 
-5R7qBir9vLD2YBMv6osUKS:  3620
 5mjpZR7E0lJ11826Io70iT:  115022
-8aAO95uZbv12pXJ9mRH58D:  4803
 DQhfdTHT2kk7P6LobhBQCq:  658
-DfJYcaJyxRaLB7IVEln9q2:  1117
 GB9FWCG5RyPLWNHwHXtxsC:  326
 IwZTMSe3Ivv9yhoBZv26Oz:  737
 L9DNYpQqFEEG6Irhz79OYV:  4662
 aeson_JVzbBMTMmQ32nxHUK3Dk9p:33279
-base:                    601324
+base:                    589574
 bytes_96M8oqQTVIe6bIZr9qhhuC:2746
 conta_3UVKjic2MoqF92jHhg7Ur8:1112489
 deeps_6zNFUGyDFQ59UU8BCTkqk0:856
 ghc-prim:                24770
 ghcjs_7b01A0aGNCoHSoxWaQfJsm:28471
 ghcjs_9jpamHTyFf8CL10DbS4jxv:10248
-integer-gmp:             31037
-main:                    801974
+integer-gmp:             24196
+main:                    781862
 primi_CRhbMv8kA5dFpZOCD0QPrI:2397
 scien_7RWav52ZEb8LpSeINhjuJE:5755
 text_AoFu0I23s11C5sDmOoIAPZ:18768
-trans_EziP6JoSSK398q9vuXpnAA:3559
 unord_6zDVf5UGzMbGMOWP8CT2TB:3875
 vecto_DeaUpJs6ZtbBhz15yBYLWJ:84145
 
 
 code size per module:
-
-5R7qBir9vLD2YBMv6osUKS
-    Data.IntTrie:                       3620
 
 5mjpZR7E0lJ11826Io70iT
     Miso:                               16347
@@ -50,15 +43,9 @@ code size per module:
     Miso.Svg.Element:                   1344
     Miso.Svg.Event:                     330
 
-8aAO95uZbv12pXJ9mRH58D
-    Data.MemoCombinators:               4803
-
 DQhfdTHT2kk7P6LobhBQCq
     Control.Comonad.Representable.Store:341
     Data.Functor.Rep:                   317
-
-DfJYcaJyxRaLB7IVEln9q2
-    Control.Lens.Fold:                  1117
 
 GB9FWCG5RyPLWNHwHXtxsC
     Data.Distributive:                  326
@@ -75,12 +62,11 @@ aeson_JVzbBMTMmQ32nxHUK3Dk9p
     Data.Aeson.Types.Internal:          25774
 
 base
-    Control.Applicative:                2629
+    Control.Applicative:                840
     Control.Exception.Base:             8890
-    Data.Bits:                          7748
+    Data.Bits:                          386
     Data.Either:                        397
     Data.Foldable:                      5587
-    Data.Functor.Identity:              1129
     Data.Maybe:                         728
     Data.Monoid:                        6369
     Data.OldList:                       3751
@@ -93,10 +79,10 @@ base
     Foreign.Marshal.Array:              2052
     Foreign.Storable:                   2700
     GHC.Arr:                            12692
-    GHC.Base:                           9446
+    GHC.Base:                           9102
     GHC.Char:                           724
     GHC.Conc.Sync:                      7900
-    GHC.Enum:                           10136
+    GHC.Enum:                           9946
     GHC.Err:                            220
     GHC.Exception:                      6664
     GHC.Float:                          78624
@@ -120,15 +106,15 @@ base
     GHC.IO.Handle.Text:                 15882
     GHC.IO.Handle.Types:                3846
     GHC.Int:                            806
-    GHC.List:                           9357
+    GHC.List:                           8794
     GHC.MVar:                           188
     GHC.Num:                            3377
     GHC.Ptr:                            188
     GHC.Read:                           16172
-    GHC.Real:                           23704
+    GHC.Real:                           23515
     GHC.ST:                             4902
     GHC.STRef:                          194
-    GHC.Show:                           16214
+    GHC.Show:                           16030
     GHC.Storable:                       1094
     GHC.TopHandler:                     13710
     GHC.Word:                           2625
@@ -174,7 +160,7 @@ ghcjs_9jpamHTyFf8CL10DbS4jxv
 
 integer-gmp
     GHC.Integer.GMP.Prim:               333
-    GHC.Integer.Type:                   30704
+    GHC.Integer.Type:                   23863
 
 main
     Action:                             207697
@@ -183,7 +169,6 @@ main
     Grid:                               256202
     Main:                               2412
     Model:                              53143
-    Store:                              20112
     View:                               171448
 
 primi_CRhbMv8kA5dFpZOCD0QPrI
@@ -197,9 +182,6 @@ text_AoFu0I23s11C5sDmOoIAPZ
     Data.Text.Array:                    924
     Data.Text.Internal:                 1254
     Data.Text.Show:                     16590
-
-trans_EziP6JoSSK398q9vuXpnAA
-    Control.Monad.Trans.State.Lazy:     3559
 
 unord_6zDVf5UGzMbGMOWP8CT2TB
     Data.HashMap.Array:                 221
@@ -221,5 +203,5 @@ vecto_DeaUpJs6ZtbBhz15yBYLWJ
 
 
 
-packed metadata: 405438
+packed metadata: 390120
 

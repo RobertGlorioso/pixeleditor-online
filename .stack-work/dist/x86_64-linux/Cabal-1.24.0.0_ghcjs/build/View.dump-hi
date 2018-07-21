@@ -1,0 +1,222 @@
+
+==================== FINAL INTERFACE ====================
+2018-07-21 21:24:25.075039 UTC
+
+interface K0d86YrFTPVHDG8f2hkJsO:View 7103
+  interface hash: dee81bdeecaf433e18ee5d1e9051c3d5
+  ABI hash: 759168aab63f8ef9d74f77e2aec94304
+  export-list hash: 59f58e3e5c06d8a084444aaaad4b9851
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 9d71c3cdcb991d01d6cc0981493a6e9d
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  View.onChange
+  View.viewModel
+module dependencies: Action CanvasBS Foreign Grid Model
+package dependencies: free-4.12.4@1eurGt1fuHK2cRtgabGBHP
+                      double-conversion-2.0.1.0@2Xa8SJPa7R6HCPphLK5wfE
+                      semigroupoids-5.0.1@3CRZZe4hqNpGPMslNSqkmU
+                      prelude-extras-0.4.0.3@3hY1pGCNUZPGpakaVBbWJ3
+                      bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3
+                      time-locale-compat-0.1.1.3@4ww81SmMgsh5XzEiHjqYFj
+                      microlens-platform-0.3.7.0@578OmrS08TEL8ziKFiGkaa
+                      string-conversions-0.4@5gu39Tijpgu35ImambuVYY
+                      miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT
+                      microlens-mtl-0.1.10.0@6gRnF3RiLuiHarM8IwKon8
+                      blaze-builder-0.4.0.2@7IG4YvzEuZ07ymzKaTmpGZ
+                      http-media-0.6.4@7alkYa5GzrRFuqgmPgMqmy
+                      utf8-string-1.0.1.1@8oOAZ6IwtjTCVi66vOztid
+                      http-api-data-0.2.4@9WyOtwKyJU13YHNetDNTM1
+                      http-types-0.9.1@9aToBsGMTwq9TJPGZLMXA7
+                      servant-0.7.1@BAC8UIDcqedBqPC3yxbll0
+                      microlens-ghc-0.4.7.0@BnIY1pDiMjAFHIJUEtWwQ3
+                      parsec-3.1.11@C8IpmeP0Ud7KoD9bWQ4uRX
+                      profunctors-5.2@C9G6SHDoChp3c5DdFZ3SYo
+                      adjunctions-4.3@DQhfdTHT2kk7P6LobhBQCq
+                      microlens-th-0.4.1.0@DxBgDlOOny37tsN88lPJxW
+                      bytestring-conversion-0.3.1@FzNwmVPmVGkIhifln6P03
+                      distributive-0.5.0.2@GB9FWCG5RyPLWNHwHXtxsC
+                      vault-0.3.0.6@GhO5YBKZjx2IHEctwNjWg5
+                      microlens-0.4.7.0@Gm3DcwSuiMWJO89TulH9T1
+                      StateVar-1.1.0.4@HqPbaegU8vaILzWyNRXfZJ
+                      comonad-4.2.7.2@IwZTMSe3Ivv9yhoBZv26Oz
+                      base-orphans-0.5.4@JGq1s3IFHNKKDGlpUOnN2k
+                      contravariant-1.4@JkrRDiLmNcb1pi3z4fFKuZ
+                      base-compat-0.9.1@KLqE4DmcSdeI96ryhDdoGE
+                      safe-0.3.9@L9DNYpQqFEEG6Irhz79OYV
+                      network-uri-2.6.1.0@LLIr0eP6ccoKFdUO8ej6BP
+                      aeson-0.11.2.1@aeson_JVzbBMTMmQ32nxHUK3Dk9p
+                      array-0.5.1.0@array_30xqJMcqwbkI6LBfgLltdH
+                      attoparsec-0.13.1.0@attop_L6wixnngHQcD9Hvcio7lU7 base-4.8.2.0
+                      binary-0.7.5.0@binar_03WQkzzYAE08cZoz1r0IhX
+                      bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC
+                      case-insensitive-1.2.0.7@casei_C8Xgn9Yn4bKELPzpRRgiQj
+                      containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8
+                      deepseq-1.4.1.1@deeps_6zNFUGyDFQ59UU8BCTkqk0
+                      dlist-0.7.1.2@dlist_H1vOXFk9eUBGkwT4KVRG25
+                      fail-4.9.0.0@fail_9oXv4m1cFET3xpGVsHCxUq ghc-prim-0.4.0.0
+                      ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm
+                      ghcjs-prim-0.1.0.0@ghcjs_9jpamHTyFf8CL10DbS4jxv
+                      hashable-1.2.4.0@hasha_Bj7NmECL61JJPMp5YcPO6u integer-gmp-0.5.1.0
+                      mtl-2.2.1@mtl_JNINybzCkug09H8kU1kQe9
+                      pretty-1.1.2.0@prett_G4jkZxe4grh032xOnNbbI6
+                      primitive-0.6.1.0@primi_CRhbMv8kA5dFpZOCD0QPrI
+                      scientific-0.3.4.9@scien_7RWav52ZEb8LpSeINhjuJE
+                      semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz
+                      stm-2.4.4.1@stm_8NazQlQfOTX9dninPefuS5
+                      tagged-0.8.4@tagge_EpMmiBjiJPdFiokZ6hOmMm template-haskell-2.10.0.0
+                      text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ
+                      time-1.5.0.1@time_1GoZbNl2fDzKHJr3QPGAAf
+                      transformers-0.4.2.0@trans_EziP6JoSSK398q9vuXpnAA
+                      unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB
+                      vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ
+orphans: microlens-platform-0.3.7.0@578OmrS08TEL8ziKFiGkaa:Lens.Micro.Platform
+         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Html.Internal
+         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.String
+         microlens-ghc-0.4.7.0@BnIY1pDiMjAFHIJUEtWwQ3:Lens.Micro.GHC
+         base-orphans-0.5.4@JGq1s3IFHNKKDGlpUOnN2k:Data.Orphans
+         aeson-0.11.2.1@aeson_JVzbBMTMmQ32nxHUK3Dk9p:Data.Aeson.Types.Generic
+         aeson-0.11.2.1@aeson_JVzbBMTMmQ32nxHUK3Dk9p:Data.Aeson.Types.Instances
+         attoparsec-0.13.1.0@attop_L6wixnngHQcD9Hvcio7lU7:Data.Attoparsec.ByteString.Char8
+         attoparsec-0.13.1.0@attop_L6wixnngHQcD9Hvcio7lU7:Data.Attoparsec.Text.Internal
+         base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         binary-0.7.5.0@binar_03WQkzzYAE08cZoz1r0IhX:Data.Binary.Generic
+         bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC:Data.ByteString.Builder
+         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:Data.JSString
+         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Internal.Types
+         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Marshal
+         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Marshal.Pure
+         hashable-1.2.4.0@hasha_Bj7NmECL61JJPMp5YcPO6u:Data.Hashable.Generic
+         stm-2.4.4.1@stm_8NazQlQfOTX9dninPefuS5:Control.Monad.STM
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Lazy
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Show
+         time-1.5.0.1@time_1GoZbNl2fDzKHJr3QPGAAf:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_1GoZbNl2fDzKHJr3QPGAAf:Data.Time.Format.Parse
+         time-1.5.0.1@time_1GoZbNl2fDzKHJr3QPGAAf:Data.Time.LocalTime.LocalTime
+         transformers-0.4.2.0@trans_EziP6JoSSK398q9vuXpnAA:Control.Monad.Trans.Error
+         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed
+family instance modules: bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Biff
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Clown
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Flip
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Join
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Joker
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Product
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Sum
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Tannen
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Wrapped
+                         microlens-platform-0.3.7.0@578OmrS08TEL8ziKFiGkaa:Lens.Micro.Platform
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Effect.XHR
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Event.Types
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Html.Internal
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Router
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Subscription.WebSocket
+                         microlens-mtl-0.1.10.0@6gRnF3RiLuiHarM8IwKon8:Lens.Micro.Mtl.Internal
+                         servant-0.7.1@BAC8UIDcqedBqPC3yxbll0:Servant.API.ContentTypes
+                         servant-0.7.1@BAC8UIDcqedBqPC3yxbll0:Servant.API.Verbs
+                         servant-0.7.1@BAC8UIDcqedBqPC3yxbll0:Servant.Utils.Links
+                         microlens-ghc-0.4.7.0@BnIY1pDiMjAFHIJUEtWwQ3:Lens.Micro.GHC
+                         adjunctions-4.3@DQhfdTHT2kk7P6LobhBQCq:Data.Functor.Rep
+                         microlens-0.4.7.0@Gm3DcwSuiMWJO89TulH9T1:Lens.Micro.Internal
+                         K0d86YrFTPVHDG8f2hkJsO:Grid
+                         network-uri-2.6.1.0@LLIr0eP6ccoKFdUO8ej6BP:Network.URI
+                         attoparsec-0.13.1.0@attop_L6wixnngHQcD9Hvcio7lU7:Data.Attoparsec.Internal.Types
+                         base-4.8.2.0:Control.Applicative base-4.8.2.0:Data.Either
+                         base-4.8.2.0:Data.Functor.Identity base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:Data.Void
+                         base-4.8.2.0:GHC.Exts base-4.8.2.0:GHC.Generics
+                         base-4.8.2.0:GHC.TypeLits
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.IntMap.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.IntSet.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Map.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Sequence
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Set.Base
+                         dlist-0.7.1.2@dlist_H1vOXFk9eUBGkwT4KVRG25:Data.DList
+                         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:Data.JSString
+                         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:JavaScript.Web.XMLHttpRequest
+                         pretty-1.1.2.0@prett_G4jkZxe4grh032xOnNbbI6:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primi_CRhbMv8kA5dFpZOCD0QPrI:Control.Monad.Primitive
+                         semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz:Data.List.NonEmpty
+                         semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz:Data.Semigroup
+                         tagged-0.8.4@tagge_EpMmiBjiJPdFiokZ6hOmMm:Data.Tagged
+                         template-haskell-2.10.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text
+                         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Lazy
+                         unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB:Data.HashMap.Base
+                         unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB:Data.HashSet
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Primitive
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Storable
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed.Base
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso a1c893209f7523cb49ce95741bb2c4ac
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Event.Decoder b26a1b5a7a903775bd42c2092bb0b9d8
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Html.Element 52ddb99e6b3df603ff17a173a5013b0d
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Html.Event cea787b733d7bdf8c4bfc7018e8372f2
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Html.Internal 2181c7f6497daaa575bfca1e19beb9a9
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Html.Property c0038f91cf4509abcc147934dd2e4918
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.String 27892c01a70c8793d04721a822b51f35
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Svg 98ac9b9bd3eddbf12537573caddfe684
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Svg.Attribute 58f1279b68f9046f44c456a17d39ae35
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Svg.Element bd968ab0a00d99e9d93a606562aa0d69
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Svg.Event 735be78d1d75eab28c9dfff98f910d85
+import  -/  Action c8faba75c2b03721efab41cdc7bead63
+  exports: 373e1ff677ab1e5a2950c1e408cb31ae
+  Action 59cfae54ade8df113366b73837261562
+  Begin 1a66d4f9127ce113d77da5485f258879
+  Fill 16ef30a8c40c01a1c126468eb889d946
+  Id 6b5fd36756c8fb6dff668fe2f9ec9389
+  Paint ede2d7477621680286ad1d9ecf25305a
+  PickColor 14ec5ac35106aafaf0ee5e434c0f4441
+  PickSpectrum cea75d79d7bcd12460c872f299547bea
+  PixelResize d291201a91cdee2c9cc79d737f0cdbd3
+  ReadFile 6dc1131e61bd661e102eff35070cd4d6
+  RedrawGrid 0bfb43e6ff638f5042cd9087e6801c57
+  Rename f4dfa677158d46c75097329bee4cfdc9
+  Review cf24225707063776e43adf3877c62e4e
+  Selected eae2ded9d873b62f6e04c642708451bf
+  SwitchFill e4c7879727803ff6812500cbeb262672
+  UpdatePic d2af9c73d995b02a4f7a44f2a6cb0918
+import  -/  Grid 1c8b305fae8c4586fedc8ea8a3bd404e
+  exports: 1fe599e53863714915c59b595611129c
+  ! 175dbd93a0f3222ed2f7d1be55fcfa62
+  Y 4bfa79de40c90d74e82e5b55ab897cac
+  YY bf2a2303038199dd73c496f2f9695d4c
+  _unyy 9048329e263b49ebb2bee77ca39db3ec
+  cursor 277a59ec4b1b6434d48adb8c5026b083
+  resize 2d472577f1db42070e5a2c8e4ae324b9
+  size 67754bce75da0fc26da610083c03ebfb
+import  -/  Model 167ebbe1ebcbf54587a27d9c6a38baee
+  exports: 6f75bdd3e1989fd7599a0f806f395ea9
+  Model 60e808174846558a55b1d4861ce3ef33
+  Model b7744205fa3ebd2b19d31f16f68111ea
+import  -/  safe-0.3.9@L9DNYpQqFEEG6Irhz79OYV:Safe a8651724cb1a9985efc9bed7b1fbd23e
+import  -/  base-4.8.2.0:Data.Foldable e02ef8f402ecf74de677f4cf912139e1
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.Monoid aedeb87581b509f07dc527bb766417c5
+import  -/  base-4.8.2.0:GHC.Base bf56e93e483b6a281ad97fedb63bfd04
+import  -/  base-4.8.2.0:GHC.List fbd910b126f36c7feead9fbba6aa48a0
+import  -/  base-4.8.2.0:GHC.Num f16387d7a90bf7ef0bf31e86d0ac9645
+import  -/  base-4.8.2.0:GHC.Show ed2e62a4d3cc01e973aec92d52f5786d
+import  -/  base-4.8.2.0:Prelude aeed44d4e8d251a340a1597dd2a0cbc5
+import  -/  containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Map bf350f44d7ea092c004daae24b3d7e60
+import  -/  containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Map.Base c78f877c94a9fb40f031786a36e21e62
+import  -/  containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Sequence 28aa469977d5d32d6f1c8c2af4c52961
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:Data.JSString 4ad7e48149321e9645edb2a82076b635
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:Data.JSString.Internal.Type 243e4ca6507a066bc5d81fdc78d189ed
+8049d8d249ce5e24bcfb598451b78c08
+  onChange :: action -> Miso.Html.Internal.Attribute action
+92e8b2d30d6c297bf3ac3998b4f99e9b
+  viewModel :: Model.Model -> Miso.Html.Internal.View Action.Action
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

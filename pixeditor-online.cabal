@@ -1,6 +1,6 @@
-name:                pixeleditor-online
+name:                pixeditor-online
 version:             0.1.0.0
-synopsis:            pixel art editor miso app
+synopsis:            miso app
 category:            Web
 build-type:          Simple
 cabal-version:       >=1.10
@@ -17,6 +17,7 @@ library
                      , distributive >= 0.5.0.2
                      , free >= 4.12.4
                      , ghcjs-base >= 0.2.0.0
+                     --, jsaddle >= 0.9.5.0
                      --, grid >= 7.8.9
                      --, lens
                      , microlens-platform
@@ -41,13 +42,13 @@ executable app
                      , free >= 4.12.4
                      , ghcjs-base >= 0.2.0.0
                      --, grid == 7.8.9
-                     --, lens
+                     , lens
                      , semigroups >= 0.18.2
                      --, microlens >= 0.4.8.0
                      , microlens-platform
                      , microlens-th >= 0.4.1.0
                      , miso  >= 0.7.2.0
-                     , pixeleditor-online
+                     , pixeditor-online
                      , safe
                      , text >= 1.2.2.1
                      , transformers >= 0.4.2.0

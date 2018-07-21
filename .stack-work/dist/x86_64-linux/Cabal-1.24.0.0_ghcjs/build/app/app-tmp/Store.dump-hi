@@ -1,0 +1,198 @@
+
+==================== FINAL INTERFACE ====================
+2018-07-21 21:24:30.624783 UTC
+
+interface main@main:Store 7103
+  interface hash: 40d0cfacf4a898e7e87c84012d009835
+  ABI hash: 7ac10e2fa530338a6910e2ecd11e3df7
+  export-list hash: b765e02e34d06c0046bb30fcaf7431d5
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 8ff392bb9dbc20ce6f1cc0b94059f7f4
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Store.experiment
+  Store.loop
+  Store.rule
+  Store.tab
+  Store.window
+  Store.Bazaar{Store.Bazaar Store.runBazaar}
+  Store.FunList{Store.Done Store.More}
+  Store.Store{Store.Store}
+module dependencies:
+package dependencies: free-4.12.4@1eurGt1fuHK2cRtgabGBHP
+                      semigroupoids-5.0.1@3CRZZe4hqNpGPMslNSqkmU
+                      prelude-extras-0.4.0.3@3hY1pGCNUZPGpakaVBbWJ3
+                      bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3
+                      data-inttrie-0.1.2@5R7qBir9vLD2YBMv6osUKS
+                      exceptions-0.8.3@6evAgjnIg1iGcGCRxKdaVi
+                      data-memocombinators-0.5.1@8aAO95uZbv12pXJ9mRH58D
+                      profunctors-5.2@C9G6SHDoChp3c5DdFZ3SYo
+                      adjunctions-4.3@DQhfdTHT2kk7P6LobhBQCq
+                      lens-4.13@DfJYcaJyxRaLB7IVEln9q2
+                      distributive-0.5.0.2@GB9FWCG5RyPLWNHwHXtxsC
+                      StateVar-1.1.0.4@HqPbaegU8vaILzWyNRXfZJ
+                      comonad-4.2.7.2@IwZTMSe3Ivv9yhoBZv26Oz
+                      base-orphans-0.5.4@JGq1s3IFHNKKDGlpUOnN2k
+                      contravariant-1.4@JkrRDiLmNcb1pi3z4fFKuZ
+                      kan-extensions-4.2.3@Ki3edErSIMh3fiBkJV9pIT
+                      reflection-2.1.2@LOBDTWYCuBYKXGqHzL0dPv
+                      array-0.5.1.0@array_30xqJMcqwbkI6LBfgLltdH base-4.8.2.0
+                      binary-0.7.5.0@binar_03WQkzzYAE08cZoz1r0IhX
+                      bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC
+                      containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8
+                      deepseq-1.4.1.1@deeps_6zNFUGyDFQ59UU8BCTkqk0 ghc-prim-0.4.0.0
+                      hashable-1.2.4.0@hasha_Bj7NmECL61JJPMp5YcPO6u integer-gmp-0.5.1.0
+                      mtl-2.2.1@mtl_JNINybzCkug09H8kU1kQe9
+                      pretty-1.1.2.0@prett_G4jkZxe4grh032xOnNbbI6
+                      primitive-0.6.1.0@primi_CRhbMv8kA5dFpZOCD0QPrI
+                      semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz
+                      stm-2.4.4.1@stm_8NazQlQfOTX9dninPefuS5
+                      tagged-0.8.4@tagge_EpMmiBjiJPdFiokZ6hOmMm template-haskell-2.10.0.0
+                      text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ
+                      transformers-0.4.2.0@trans_EziP6JoSSK398q9vuXpnAA
+                      unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB
+                      vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ
+orphans: base-orphans-0.5.4@JGq1s3IFHNKKDGlpUOnN2k:Data.Orphans
+         reflection-2.1.2@LOBDTWYCuBYKXGqHzL0dPv:Data.Reflection
+         base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         binary-0.7.5.0@binar_03WQkzzYAE08cZoz1r0IhX:Data.Binary.Generic
+         bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC:Data.ByteString.Builder
+         hashable-1.2.4.0@hasha_Bj7NmECL61JJPMp5YcPO6u:Data.Hashable.Generic
+         stm-2.4.4.1@stm_8NazQlQfOTX9dninPefuS5:Control.Monad.STM
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Lazy
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Show
+         transformers-0.4.2.0@trans_EziP6JoSSK398q9vuXpnAA:Control.Monad.Trans.Error
+         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed
+family instance modules: bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Biff
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Clown
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Flip
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Join
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Joker
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Product
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Sum
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Tannen
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Wrapped
+                         profunctors-5.2@C9G6SHDoChp3c5DdFZ3SYo:Data.Profunctor.Rep
+                         adjunctions-4.3@DQhfdTHT2kk7P6LobhBQCq:Data.Functor.Rep
+                         lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens.At
+                         lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens.Internal.Indexed
+                         lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens.Internal.Zoom
+                         lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens.Reified
+                         lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens.Tuple
+                         lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens.Wrapped
+                         kan-extensions-4.2.3@Ki3edErSIMh3fiBkJV9pIT:Data.Functor.Yoneda
+                         base-4.8.2.0:Control.Applicative base-4.8.2.0:Data.Either
+                         base-4.8.2.0:Data.Functor.Identity base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:Data.Void
+                         base-4.8.2.0:GHC.Exts base-4.8.2.0:GHC.Generics
+                         base-4.8.2.0:GHC.TypeLits
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.IntMap.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.IntSet.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Map.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Sequence
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Set.Base
+                         pretty-1.1.2.0@prett_G4jkZxe4grh032xOnNbbI6:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primi_CRhbMv8kA5dFpZOCD0QPrI:Control.Monad.Primitive
+                         semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz:Data.List.NonEmpty
+                         semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz:Data.Semigroup
+                         tagged-0.8.4@tagge_EpMmiBjiJPdFiokZ6hOmMm:Data.Tagged
+                         template-haskell-2.10.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text
+                         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Lazy
+                         unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB:Data.HashMap.Base
+                         unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB:Data.HashSet
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Primitive
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Storable
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed.Base
+import  -/  data-memocombinators-0.5.1@8aAO95uZbv12pXJ9mRH58D:Data.MemoCombinators 0a7893314eb5376b27a41af650801d41
+import  -/  lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens f38e1e3cd3d5bff9397dae80aafe2d48
+import  -/  lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens.Setter 51957cc41c6d5bcf4e4548ed624cd829
+import  -/  lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Control.Lens.Traversal 22c27a2c54dbbafce9be2146cb83404c
+import  -/  lens-4.13@DfJYcaJyxRaLB7IVEln9q2:Data.Bits.Lens 9090920b6e6577b7d01cd3f407262b2c
+import  -/  comonad-4.2.7.2@IwZTMSe3Ivv9yhoBZv26Oz:Control.Comonad 85eaa1732f3c3099999d8c8bdd0a883e
+import  -/  base-4.8.2.0:Data.Bits 2b2e6f6a4cbfd556de493cbd655be1e0
+import  -/  base-4.8.2.0:Data.Function 6b13a8d3a5e3bd757a91434dce3fc7f3
+import  -/  base-4.8.2.0:Data.Functor 5c701b0af1708f0192a25dfe14ce6274
+import  -/  base-4.8.2.0:Data.Typeable.Internal 540ff3401cc4aee5f9aa3964001dfacd
+import  -/  base-4.8.2.0:Data.Word 778cb90c8155690b7a2d2c6218f11825
+import  -/  base-4.8.2.0:GHC.Base bf56e93e483b6a281ad97fedb63bfd04
+import  -/  base-4.8.2.0:GHC.Enum de9e709e3cfba1600f02298d6300d9ae
+import  -/  base-4.8.2.0:GHC.List fbd910b126f36c7feead9fbba6aa48a0
+import  -/  base-4.8.2.0:GHC.Num f16387d7a90bf7ef0bf31e86d0ac9645
+import  -/  base-4.8.2.0:GHC.Real 19512fd0180d01f4277618956f9ad661
+import  -/  base-4.8.2.0:GHC.Show ed2e62a4d3cc01e973aec92d52f5786d
+import  -/  base-4.8.2.0:GHC.Word 95c98ca41f43b4d463ca8980909870cf
+import  -/  base-4.8.2.0:Prelude aeed44d4e8d251a340a1597dd2a0cbc5
+import  -/  bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC:Data.ByteString 7b5289d60da3c8e160c24b36ef4990f1
+import  -/  bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC:Data.ByteString.Lazy ee5c2373d51061626a2f9bc681d88582
+6b4f1771514955dc237a600e399886f7
+  $fComonadStore ::
+    GHC.Base.Functor (Store.Store s) =>
+    Control.Comonad.Comonad (Store.Store s)
+  DFunId[1]
+eee22154cb9fc939d41e5be6aaec16b5
+  $fFunctorBazaar :: GHC.Base.Functor (Store.Bazaar s)
+  DFunId[0]
+c4ed46f87f455fe9bf872b0353aa0d34
+  $fFunctorFunList :: GHC.Base.Functor (Store.FunList s)
+  DFunId[0]
+6b4f1771514955dc237a600e399886f7
+  $fFunctorStore :: GHC.Base.Functor (Store.Store s)
+  DFunId[0]
+6b4f1771514955dc237a600e399886f7
+  $fShowStore :: GHC.Show.Show a => GHC.Show.Show (Store.Store s a)
+  DFunId[0]
+eee22154cb9fc939d41e5be6aaec16b5
+  type role Bazaar nominal nominal
+  newtype Bazaar s a
+    = Bazaar {runBazaar :: forall (f :: * -> *).
+                           GHC.Base.Applicative f =>
+                           (s -> f s) -> f a}
+c4ed46f87f455fe9bf872b0353aa0d34
+  data FunList s a = Done a | More s (Store.FunList s (s -> a))
+    Promotable
+6b4f1771514955dc237a600e399886f7
+  data Store s a = Store (s -> a) s
+    Promotable
+d086f3842f9749d0dd48ac62958ff51d
+  experiment ::
+    GHC.Base.Functor f => (s -> f s) -> Store.Store s a -> f a
+5afb3fed9f6f3d88a4b483e30d26013b
+  loop ::
+    GHC.Real.Integral s =>
+    (Store.Store s a -> a) -> Store.Store s a -> [Store.Store s a]
+160978fc5808cfb1ba54892f4d9fa146
+  rule ::
+    GHC.Num.Num s =>
+    GHC.Word.Word8 -> Store.Store s GHC.Types.Bool -> GHC.Types.Bool
+acad8c7f596590e118780737006aebdc
+  runBazaar ::
+    GHC.Base.Applicative f => Store.Bazaar s a -> (s -> f s) -> f a
+  RecSel Store.Bazaar
+a96b6f84b0b2176265656aa615a9fd6f
+  tab ::
+    Data.MemoCombinators.Memo s -> Store.Store s a -> Store.Store s a
+c647dc4c65bb819f0b1d89d63405740e
+  window ::
+    (GHC.Enum.Enum s, GHC.Num.Num s) =>
+    s -> s -> Store.Store s a -> [a]
+instance Control.Comonad.Comonad [Store.Store]
+  = Store.$fComonadStore
+instance GHC.Base.Functor [Store.Bazaar] = Store.$fFunctorBazaar
+instance GHC.Base.Functor [Store.FunList] = Store.$fFunctorFunList
+instance GHC.Base.Functor [Store.Store] = Store.$fFunctorStore
+instance GHC.Show.Show [Store.Store] = Store.$fShowStore
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

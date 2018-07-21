@@ -46,11 +46,11 @@ viewModel (Model (i,j) c s pixelSize l y _ gridstore title fillSwitch) =
                                   , ry_ "15" ] []
                               ]
     canvas = svg_ [ toStyle [ ("grid-row", "1/3"), ("grid-column","3/4"),("border-style","solid") ]
-                  , height_ $ pack (show d) <> "0px"
-                  , width_ $ pack (show e) <> "0px"
+                  , height_ $ pack (show $ 2*d) <> "0px"
+                  , width_ $ pack (show $ 2*e) <> "0px"
                     
                   ]
-      [g_ [] [cell (if fillSwitch then Fill (j,k) else Selected (j,k)) (j,k) (k*10) (j*10) ( Just $ y ! (j,k) ) (if s == (j,k) then "5" else "1") | j <- [0..(d-1)], k <- [0..(e-1)] ]
+      [g_ [] [cell (if fillSwitch then Fill (j,k) else Selected (j,k)) (j,k) (k*20) (j*20) ( Just $ y ! (j,k) ) (if s == (j,k) then "5" else "1") | j <- [0..(d-1)], k <- [0..(e-1)] ]
       ]
     cell :: (Show a) => Action --an action to do when clicked
          -> a --an id
@@ -63,8 +63,8 @@ viewModel (Model (i,j) c s pixelSize l y _ gridstore title fillSwitch) =
                        , y_ (pack $ show y)
                        , id_ (pack $ show i)
                        , onClick s
-                       , width_ "10"
-                       , height_ "10"
+                       , width_ "15"
+                       , height_ "15"
                        , fill_ $ maybe "rgba(0,0,0,0)" id r
                        , style_
                          $ M.fromList [
@@ -114,11 +114,11 @@ viewModel (Model (i,j) c s pixelSize l y _ gridstore title fillSwitch) =
       | True = Id
     resizeR t@(readMay.unpack -> Nothing :: Maybe Int) = Id
     resizeR t@(readMay.unpack -> Just x :: Maybe Int)
-      | 65 > x && x > 0 = RedrawGrid $ YY $ resize (Y (S.replicate e c) (Just c) 0)  (_unyy y) x
+      | 42 > x && x > 0 = RedrawGrid $ YY $ resize (Y (S.replicate e c) (Just c) 0)  (_unyy y) x
       | True = Id
     resizeC t@(readMay.unpack -> Nothing :: Maybe Int) = Id
     resizeC t@(readMay.unpack -> Just x :: Maybe Int)
-      | 65 > x && x > 0 = RedrawGrid $ YY $ fmap (flip (resize c) x) (_unyy y)
+      | 42 > x && x > 0 = RedrawGrid $ YY $ fmap (flip (resize c) x) (_unyy y)
       | True = Id
     display = div_ [ toStyle [("grid-row","4/5"),("grid-column","1/4") ] ] [pixelpics $ M.keys gridstore]  
     picoption s = option_ [ value_ s ] [ text s ]

@@ -26,6 +26,7 @@ import Miso.String (MisoString, (<>), pack)
 import qualified Miso.Svg as Svg
 import JavaScript.Web.Canvas
 import GHCJS.Types
+import GHCJS.Marshal
 import GHCJS.Foreign.Callback
 import CanvasBS
 import Model
@@ -52,7 +53,6 @@ data Action
   | Begin
   | PixelPaint
   | Paint
-  | Alert
   | Id
 
 -- | Updates model, optionally introduces side effects
@@ -80,8 +80,6 @@ updateModel PickSpectrum m = m <# do
   p <- getPixel ctx x y
   return $ PickColor p
 
-updateModel Alert m = (putStrLn "bingbong" >> pure Id) #> m
-
 updateModel (RedrawGrid i) m = noEff m {gridY = i }
 
 updateModel (Rename r) m = noEff m { title = r }
@@ -97,20 +95,24 @@ updateModel (Fill i) m@(Model _ curColor cursor _ _ yy _ _ _ _) = do
   return (Fill $ fmap snd $ VY v')
 --}
   return Id -- (Selected i)
-  
   #> m { gridY = maybe yy id $ (fmap.fmap) (\(b,c) -> if b then curColor else c) $ foldl' merge' (Just yGrid) $ yyBuild (yy ! i) (adjustYTo i yGrid) }
   where yGrid = fmap (False,) yy
   
 updateModel Paint m = m <# do
   let (d,e) = size $ gridY m
+  
   ctx <- getCtx (title m)
   let g = gridY m
   let p = pix m
-  draw ctx (p*d, p*e, toNumbBSN p e $ toList g)
+  v <- toJSVal $ toNumbBSN' p d $ toList g
+  --log_ v
+  --draw ctx (p*d, p*e, toNumbBSN p d $ toList g)
+  drawImageData ctx (p*d) (p*e) (v)
   return Id
 
 updateModel ReadFile m = m <# do
   let (d,e) = size $ gridY m
+  
   g <- readImageData d e
   return $ RedrawGrid g
   

@@ -1,0 +1,437 @@
+
+==================== FINAL INTERFACE ====================
+2018-07-21 21:24:29.634517 UTC
+
+interface main@main:Action 7103
+  interface hash: 7f480a8119fe9e6b706b2e08e93c9de3
+  ABI hash: cd969085d2b710a742a02c0fa0105d4f
+  export-list hash: 57e696c2d0701c6fad6bfe6b5a6f8747
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: cf85d5d63c10828b6bc3841307eb9a97
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Action.adjustMCCol
+  Action.adjustMRow
+  Action.adjustMTo
+  Action.adjustMVCol
+  Action.adjustMin
+  Action.freezeM
+  Action.getPic
+  Action.merge'
+  Action.mutateV
+  Action.readImageData
+  Action.seqRunL
+  Action.seqRunR
+  Action.shiftMDown
+  Action.shiftMUp
+  Action.subSeqs
+  Action.updateArray
+  Action.updateModel
+  Action.yRowSeek
+  Action.yRowSeek'
+  Action.yRowSeek''
+  Action.yyBuild
+  Action.yySeek
+  Action.yySeek''
+  Action.Action{Action.Begin Action.Fill Action.GetArrows Action.HandleMouse Action.Id Action.Opacity Action.Paint Action.PickColor Action.PickSpectrum Action.PixelPaint Action.PixelResize Action.ReadFile Action.RedrawGrid Action.Rename Action.Review Action.Selected Action.SwitchFill Action.UpdateGrid Action.UpdatePic}
+  Action.FCell
+  Action.ForestS
+  Action.TreeS{Action.NodeS Action.rootLabel Action.subForest}
+module dependencies: CanvasBS Foreign Grid Model
+package dependencies: free-4.12.4@1eurGt1fuHK2cRtgabGBHP
+                      double-conversion-2.0.1.0@2Xa8SJPa7R6HCPphLK5wfE
+                      semigroupoids-5.0.1@3CRZZe4hqNpGPMslNSqkmU
+                      prelude-extras-0.4.0.3@3hY1pGCNUZPGpakaVBbWJ3
+                      bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3
+                      time-locale-compat-0.1.1.3@4ww81SmMgsh5XzEiHjqYFj
+                      microlens-platform-0.3.7.0@578OmrS08TEL8ziKFiGkaa
+                      string-conversions-0.4@5gu39Tijpgu35ImambuVYY
+                      miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT
+                      microlens-mtl-0.1.10.0@6gRnF3RiLuiHarM8IwKon8
+                      blaze-builder-0.4.0.2@7IG4YvzEuZ07ymzKaTmpGZ
+                      http-media-0.6.4@7alkYa5GzrRFuqgmPgMqmy
+                      utf8-string-1.0.1.1@8oOAZ6IwtjTCVi66vOztid
+                      http-api-data-0.2.4@9WyOtwKyJU13YHNetDNTM1
+                      http-types-0.9.1@9aToBsGMTwq9TJPGZLMXA7
+                      servant-0.7.1@BAC8UIDcqedBqPC3yxbll0
+                      microlens-ghc-0.4.7.0@BnIY1pDiMjAFHIJUEtWwQ3
+                      parsec-3.1.11@C8IpmeP0Ud7KoD9bWQ4uRX
+                      profunctors-5.2@C9G6SHDoChp3c5DdFZ3SYo
+                      adjunctions-4.3@DQhfdTHT2kk7P6LobhBQCq
+                      microlens-th-0.4.1.0@DxBgDlOOny37tsN88lPJxW
+                      bytestring-conversion-0.3.1@FzNwmVPmVGkIhifln6P03
+                      distributive-0.5.0.2@GB9FWCG5RyPLWNHwHXtxsC
+                      vault-0.3.0.6@GhO5YBKZjx2IHEctwNjWg5
+                      microlens-0.4.7.0@Gm3DcwSuiMWJO89TulH9T1
+                      StateVar-1.1.0.4@HqPbaegU8vaILzWyNRXfZJ
+                      comonad-4.2.7.2@IwZTMSe3Ivv9yhoBZv26Oz
+                      base-orphans-0.5.4@JGq1s3IFHNKKDGlpUOnN2k
+                      contravariant-1.4@JkrRDiLmNcb1pi3z4fFKuZ
+                      base-compat-0.9.1@KLqE4DmcSdeI96ryhDdoGE
+                      network-uri-2.6.1.0@LLIr0eP6ccoKFdUO8ej6BP
+                      aeson-0.11.2.1@aeson_JVzbBMTMmQ32nxHUK3Dk9p
+                      array-0.5.1.0@array_30xqJMcqwbkI6LBfgLltdH
+                      attoparsec-0.13.1.0@attop_L6wixnngHQcD9Hvcio7lU7 base-4.8.2.0
+                      binary-0.7.5.0@binar_03WQkzzYAE08cZoz1r0IhX
+                      bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC
+                      case-insensitive-1.2.0.7@casei_C8Xgn9Yn4bKELPzpRRgiQj
+                      containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8
+                      deepseq-1.4.1.1@deeps_6zNFUGyDFQ59UU8BCTkqk0
+                      dlist-0.7.1.2@dlist_H1vOXFk9eUBGkwT4KVRG25
+                      fail-4.9.0.0@fail_9oXv4m1cFET3xpGVsHCxUq ghc-prim-0.4.0.0
+                      ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm
+                      ghcjs-prim-0.1.0.0@ghcjs_9jpamHTyFf8CL10DbS4jxv
+                      hashable-1.2.4.0@hasha_Bj7NmECL61JJPMp5YcPO6u integer-gmp-0.5.1.0
+                      mtl-2.2.1@mtl_JNINybzCkug09H8kU1kQe9
+                      pretty-1.1.2.0@prett_G4jkZxe4grh032xOnNbbI6
+                      primitive-0.6.1.0@primi_CRhbMv8kA5dFpZOCD0QPrI
+                      scientific-0.3.4.9@scien_7RWav52ZEb8LpSeINhjuJE
+                      semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz
+                      stm-2.4.4.1@stm_8NazQlQfOTX9dninPefuS5
+                      tagged-0.8.4@tagge_EpMmiBjiJPdFiokZ6hOmMm template-haskell-2.10.0.0
+                      text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ
+                      time-1.5.0.1@time_1GoZbNl2fDzKHJr3QPGAAf
+                      transformers-0.4.2.0@trans_EziP6JoSSK398q9vuXpnAA
+                      unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB
+                      vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ
+orphans: microlens-platform-0.3.7.0@578OmrS08TEL8ziKFiGkaa:Lens.Micro.Platform
+         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Html.Internal
+         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.String
+         microlens-ghc-0.4.7.0@BnIY1pDiMjAFHIJUEtWwQ3:Lens.Micro.GHC
+         base-orphans-0.5.4@JGq1s3IFHNKKDGlpUOnN2k:Data.Orphans
+         aeson-0.11.2.1@aeson_JVzbBMTMmQ32nxHUK3Dk9p:Data.Aeson.Types.Generic
+         aeson-0.11.2.1@aeson_JVzbBMTMmQ32nxHUK3Dk9p:Data.Aeson.Types.Instances
+         attoparsec-0.13.1.0@attop_L6wixnngHQcD9Hvcio7lU7:Data.Attoparsec.ByteString.Char8
+         attoparsec-0.13.1.0@attop_L6wixnngHQcD9Hvcio7lU7:Data.Attoparsec.Text.Internal
+         base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         binary-0.7.5.0@binar_03WQkzzYAE08cZoz1r0IhX:Data.Binary.Generic
+         bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC:Data.ByteString.Builder
+         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:Data.JSString
+         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Internal.Types
+         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Marshal
+         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Marshal.Pure
+         hashable-1.2.4.0@hasha_Bj7NmECL61JJPMp5YcPO6u:Data.Hashable.Generic
+         stm-2.4.4.1@stm_8NazQlQfOTX9dninPefuS5:Control.Monad.STM
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Lazy
+         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Show
+         time-1.5.0.1@time_1GoZbNl2fDzKHJr3QPGAAf:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_1GoZbNl2fDzKHJr3QPGAAf:Data.Time.Format.Parse
+         time-1.5.0.1@time_1GoZbNl2fDzKHJr3QPGAAf:Data.Time.LocalTime.LocalTime
+         transformers-0.4.2.0@trans_EziP6JoSSK398q9vuXpnAA:Control.Monad.Trans.Error
+         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed
+family instance modules: bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Biff
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Clown
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Flip
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Join
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Joker
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Product
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Sum
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Tannen
+                         bifunctors-5.2@3hoUHmqKQXDCC2EOqbdBO3:Data.Bifunctor.Wrapped
+                         microlens-platform-0.3.7.0@578OmrS08TEL8ziKFiGkaa:Lens.Micro.Platform
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Effect.XHR
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Event.Types
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Html.Internal
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Router
+                         miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Subscription.WebSocket
+                         microlens-mtl-0.1.10.0@6gRnF3RiLuiHarM8IwKon8:Lens.Micro.Mtl.Internal
+                         servant-0.7.1@BAC8UIDcqedBqPC3yxbll0:Servant.API.ContentTypes
+                         servant-0.7.1@BAC8UIDcqedBqPC3yxbll0:Servant.API.Verbs
+                         servant-0.7.1@BAC8UIDcqedBqPC3yxbll0:Servant.Utils.Links
+                         microlens-ghc-0.4.7.0@BnIY1pDiMjAFHIJUEtWwQ3:Lens.Micro.GHC
+                         adjunctions-4.3@DQhfdTHT2kk7P6LobhBQCq:Data.Functor.Rep
+                         microlens-0.4.7.0@Gm3DcwSuiMWJO89TulH9T1:Lens.Micro.Internal
+                         network-uri-2.6.1.0@LLIr0eP6ccoKFdUO8ej6BP:Network.URI
+                         attoparsec-0.13.1.0@attop_L6wixnngHQcD9Hvcio7lU7:Data.Attoparsec.Internal.Types
+                         base-4.8.2.0:Control.Applicative base-4.8.2.0:Data.Either
+                         base-4.8.2.0:Data.Functor.Identity base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:Data.Void
+                         base-4.8.2.0:GHC.Exts base-4.8.2.0:GHC.Generics
+                         base-4.8.2.0:GHC.TypeLits
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.IntMap.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.IntSet.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Map.Base
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Sequence
+                         containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Set.Base
+                         dlist-0.7.1.2@dlist_H1vOXFk9eUBGkwT4KVRG25:Data.DList
+                         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:Data.JSString
+                         ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:JavaScript.Web.XMLHttpRequest
+                         main@main:Grid
+                         pretty-1.1.2.0@prett_G4jkZxe4grh032xOnNbbI6:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primi_CRhbMv8kA5dFpZOCD0QPrI:Control.Monad.Primitive
+                         semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz:Data.List.NonEmpty
+                         semigroups-0.18.2@semig_G1Yi0PqZzRUF7uuQI82AOz:Data.Semigroup
+                         tagged-0.8.4@tagge_EpMmiBjiJPdFiokZ6hOmMm:Data.Tagged
+                         template-haskell-2.10.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text
+                         text-1.2.2.1@text_AoFu0I23s11C5sDmOoIAPZ:Data.Text.Lazy
+                         unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB:Data.HashMap.Base
+                         unordered-containers-0.2.7.1@unord_6zDVf5UGzMbGMOWP8CT2TB:Data.HashSet
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Primitive
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Storable
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed
+                         vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Unboxed.Base
+import  -/  microlens-platform-0.3.7.0@578OmrS08TEL8ziKFiGkaa:Lens.Micro.Platform ffec995e7042247b969e03d079633dba
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso a1c893209f7523cb49ce95741bb2c4ac
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Effect 0943ae60243fda644859637e99f30de1
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.String 27892c01a70c8793d04721a822b51f35
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Subscription.Keyboard a1410041c3b1577729861816b8d507f4
+import  -/  miso-0.10.0.0@5mjpZR7E0lJ11826Io70iT:Miso.Svg 98ac9b9bd3eddbf12537573caddfe684
+import  -/  microlens-0.4.7.0@Gm3DcwSuiMWJO89TulH9T1:Lens.Micro 9c581d8637ff22e21eec7d98a2263dc1
+import  -/  base-4.8.2.0:Control.Concurrent.MVar 042ed108d2da0e9cf43ced86573bd10a
+import  -/  base-4.8.2.0:Data.Foldable e02ef8f402ecf74de677f4cf912139e1
+import  -/  base-4.8.2.0:Data.Function 6b13a8d3a5e3bd757a91434dce3fc7f3
+import  -/  base-4.8.2.0:Data.Functor 5c701b0af1708f0192a25dfe14ce6274
+import  -/  base-4.8.2.0:Data.List b8b653f5927cedfddc115efcbc90af59
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.Monoid aedeb87581b509f07dc527bb766417c5
+import  -/  base-4.8.2.0:Data.OldList 877897032d4acf896fd3ceca4f23ddd5
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:GHC.Base bf56e93e483b6a281ad97fedb63bfd04
+import  -/  base-4.8.2.0:GHC.List fbd910b126f36c7feead9fbba6aa48a0
+import  -/  base-4.8.2.0:GHC.MVar 833e52efb9cdbee2b0c742e99417241f
+import  -/  base-4.8.2.0:GHC.Num f16387d7a90bf7ef0bf31e86d0ac9645
+import  -/  base-4.8.2.0:GHC.Read bc8edefd2cc6c6e486c5b11ae74c50d1
+import  -/  base-4.8.2.0:GHC.Show ed2e62a4d3cc01e973aec92d52f5786d
+import  -/  base-4.8.2.0:Prelude aeed44d4e8d251a340a1597dd2a0cbc5
+import  -/  base-4.8.2.0:Text.ParserCombinators.ReadPrec b86f99bbb7a666797cf4bee568e089de
+import  -/  base-4.8.2.0:Text.Read.Lex d13ce5aa82846732c3217b6baf809aeb
+import  -/  bytestring-0.10.6.0@bytes_96M8oqQTVIe6bIZr9qhhuC:Data.ByteString.Char8 b6185a54410c7c0cd154058de0cfa768
+import  -/  containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Map bf350f44d7ea092c004daae24b3d7e60
+import  -/  containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Map.Base c78f877c94a9fb40f031786a36e21e62
+import  -/  containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Sequence 28aa469977d5d32d6f1c8c2af4c52961
+import  -/  containers-0.5.6.2@conta_3UVKjic2MoqF92jHhg7Ur8:Data.Tree 7477713fa7d2e2e3cb9707b270d7312c
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:Data.JSString 4ad7e48149321e9645edb2a82076b635
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:Data.JSString.Internal.Type 243e4ca6507a066bc5d81fdc78d189ed
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Foreign.Callback 4d87b2280686c871c146b6d76b30ab20
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Marshal 801cb78da0c8655bb483ba9b81a8d865
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Marshal.Internal 70f4398ac475c1de30b52b7089d7652b
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:GHCJS.Types fca98e6c50586bf667f1c32b024b2d03
+import  -/  ghcjs-base-0.2.0.0@ghcjs_7b01A0aGNCoHSoxWaQfJsm:JavaScript.Web.Canvas 17ab73833208cdc1cf90d3ef2e87f281
+import  -/  CanvasBS 5824c6787e4024f20c4d5470b17f2206
+  exports: 860cb767d9d0d8a037b62c6b91b4ae29
+  drawImageData 8fb8093e2ac0aa48337fe3b272f47e49
+  fromBSArray 6bbda89b3244aa6d9d3b9f5bf6d9957c
+  toNumbBSN' bae7a26204811f50efe1fc6ee66e0bd4
+import  -/  Foreign c062dd77cac29caf6cbf98586b8e54cc
+  exports: 419841527283dd45d5b1bfb03ce4c1f3
+  drawImage' 58288260dba4a11025650ecdf6838b37
+  getCtx fbe02063a59ef696860533a4ef795ab3
+  getElementById 6195dd1647716d3847ee42fe319c5198
+  getFile 7a3d395156da68ea0bfd97717ae3f976
+  getPixel 30a3a3ca196fd7ea074ade624430c54e
+  getPixels e39f077bc63e0efc040af4a430fb519e
+  imgSetOnLoad 24049d69246cbbaa4436694ef21b6a19
+  newImage e1d84a40efe97b547f0bd42d0345c737
+  newReader faf2d9db03cc6b498634ac32303e9128
+  noArrowScrolling 9b333bc3c40c89d4c0865a41e15e15d2
+  readResult 47146c672a841a5ce9eff0609a5ceb7b
+  readResultURL f365ae7754ac079c2a53907a492714ba
+  setOnLoad1 7355e6337c00f15dc36083b1ea647423
+  setSrc b9311c3c5467fca56bd9113bbca0089b
+import  -/  Grid 0a1cfb09d2853525464a771db6d2dfc9
+  exports: 1db7f8a2fcb1d023ee356bcd173d2b96
+  ! 9e9c533958d8d48b61108e3126692c6d
+  Index 3923d05d14ef14dd766c97dc6cb431d9
+  M 53b7e5ce4679e208c07abfeb4bea8430
+  M aad4620ec1822414cad86797d41e7e88
+  MY 5e0ef3a4579751662323d85163f492cf
+  MY a58064f84cbba32d12831bba92b319e8
+  V 8e2da0e6f1cb98d477bbc68ce455ca92
+  V c5742b9cd8c0811aeaa87044ec3277c2
+  Y d21a1ef978f092218dfbfed3bb0b3dab
+  Y c5742b9cd8c0811aeaa87044ec3277c2
+  YN 9ab638be08df119381add1889be5728a
+  YS d8897bd981c997ad2476d632b0167d27
+  YY 08af209b02af5d30bf23e644e14f24bd
+  YY c5742b9cd8c0811aeaa87044ec3277c2
+  _mc a559e425b1e3369973d82bc8ee29127a
+  _mi 3491db0a90a7d8c8713f815b8b0be95f
+  _ml 530b9dd02efb9367f07800e519250759
+  _unmy bc699203b39467666765f64c20dc9e78
+  _unyy 924c11af91d8e75e40cbb6ccdf7ad108
+  _yc 4a1138e1b902f7bdbbba58f1671c5bb0
+  _yl dc359383399fa7aa5bbdd19be36307b1
+  adjustYCol c5fd2d9047851f45fef9a1a25ce699d2
+  adjustYTo 606d4e7477585b7ff2d5dde978fba5bf
+  adjustYin 88935ebc5d688673f5cd5ad8648729fd
+  fromMap 4b777648fee4830403dae096863f462d
+  index a7bac28f615e7e2ab3067ca5038f0a80
+  mc 14db47434722d452cbfab410490c2d11
+  shift 6e95a174483e6d031994ab1c7669d38a
+  size fc6258ca0efc8bc632de80b05f69ec17
+  toList d04937a1554e4db02265efaee89cc93e
+  unmy ab35164da13d3998c657d6105e76c309
+  unyy 0418f6b7f7c1c6a731c5141e62b7c0ac
+  update c2308fc49f40869f0216da43acbcc06b
+  yl 6fb28215b15246acb01b0ed76059b804
+import  -/  Model 98e9bb439151bb1cd9cf4b7f3174181b
+  exports: 218359256f47ff5af66ccbbdde37223f
+  Model a57b202655e6f51f01f4855423a8acbe
+  Model 523b03e580b3a0c5c69f09c6021744a9
+  color bd1b0f2ead019b4f7ab21ca8774c62cc
+  fillSwitch 7f07286be62562f60f44c0d5122ead74
+  getArrows be88efa634bb7f9ffde0d119bf37c980
+  grid c15c78fa69b4313c23992933f5e5f1cb
+  gridY 3889b2663dcee55620174576a3c9bfa0
+  mouseCoords fa6284a89ab389cac41c7a71825418f7
+  pix c68e061b271a1add822952d71c42c43e
+  selected 11e234ff5cb0e026e2d3003d93cb43ca
+  store 02144130b7c0168d17a8e5f0b07cca3d
+  title 415ff676b1c687b7f8d51a06b6c1fd12
+import  -/  vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector 83a36f6bdfbbe89292afa4d7f04acf86
+import  -/  vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Generic 55efa0b397559589dcff474c2fa86dd4
+import  -/  vector-0.11.0.0@vecto_DeaUpJs6ZtbBhz15yBYLWJ:Data.Vector.Mutable 2273a1f3f658e8ed7f7f626b68909e00
+862077d77d1a3fedc929bedf79dab6f5
+  $fEqTreeS :: GHC.Classes.Eq a => GHC.Classes.Eq (Action.TreeS a)
+  DFunId[0]
+862077d77d1a3fedc929bedf79dab6f5
+  $fFoldableTreeS :: Data.Foldable.Foldable Action.TreeS
+  DFunId[0]
+862077d77d1a3fedc929bedf79dab6f5
+  $fReadTreeS :: GHC.Read.Read a => GHC.Read.Read (Action.TreeS a)
+  DFunId[0]
+862077d77d1a3fedc929bedf79dab6f5
+  $fShowTreeS :: GHC.Show.Show a => GHC.Show.Show (Action.TreeS a)
+  DFunId[0]
+d883b5b168364d2ab1f044210bfefccf
+  data Action
+    = HandleMouse (GHC.Types.Int, GHC.Types.Int)
+    | GetArrows !Miso.Subscription.Keyboard.Arrows
+    | PickColor Data.JSString.Internal.Type.JSString
+    | Rename Data.JSString.Internal.Type.JSString
+    | Review Data.JSString.Internal.Type.JSString
+    | RedrawGrid (Grid.YY Data.JSString.Internal.Type.JSString)
+    | Fill (GHC.Types.Int, GHC.Types.Int)
+    | Opacity Data.JSString.Internal.Type.JSString
+    | Selected (GHC.Types.Int, GHC.Types.Int)
+    | PixelResize GHC.Types.Int
+    | PickSpectrum
+    | UpdatePic
+    | UpdateGrid
+    | SwitchFill
+    | ReadFile
+    | Begin
+    | PixelPaint
+    | Paint
+    | Id
+044d3fb50ab804040fa0b9a28e365989
+  type FCell = (GHC.Types.Bool, Data.JSString.Internal.Type.JSString)
+862077d77d1a3fedc929bedf79dab6f5
+  type ForestS a = [Action.TreeS a]
+862077d77d1a3fedc929bedf79dab6f5
+  data TreeS a
+    = NodeS {rootLabel :: !a, subForest :: Action.ForestS a}
+    RecFlag: Recursive
+48d35aaef893d99e3ae2073992d65a8a
+  adjustMCCol :: GHC.Types.Int -> Grid.MY a1 -> Grid.MY a1
+5e540de3b08eeafb09e3a6f31075f439
+  adjustMRow ::
+    GHC.Types.Int -> Grid.MY a -> GHC.Types.IO (Grid.MY a)
+6e69542039ff6e2bf870fcc5d74a7c9f
+  adjustMTo ::
+    (GHC.Types.Int, GHC.Types.Int) -> Grid.MY a -> GHC.Types.IO ()
+f98b35f9120f02f4f87081580248bacc
+  adjustMVCol :: GHC.Types.Int -> Grid.MY a -> GHC.Types.IO ()
+8a8edb85d2227b097a4d854f709f199d
+  adjustMin :: GHC.Types.Int -> Grid.M a -> GHC.Types.IO (Grid.M a)
+1128dbb60609e2f1c686fe4f77c2b795
+  freezeM :: Grid.M a -> GHC.Types.IO (Grid.V a)
+402958c80db3d0e7b7518ec041a10662
+  getPic ::
+    Miso.String.MisoString -> Miso.String.MisoString -> GHC.Types.IO ()
+6856402a9641576d0a51abcd14dcbc42
+  merge' ::
+    GHC.Classes.Eq t =>
+    GHC.Base.Maybe (Grid.YY (GHC.Types.Bool, t))
+    -> GHC.Base.Maybe (Grid.YY (GHC.Types.Bool, t))
+    -> GHC.Base.Maybe (Grid.YY (GHC.Types.Bool, t))
+3d5b088a2ad9045ad701e59f38fc9c05
+  mutateV :: Grid.V a -> GHC.Types.IO (Grid.M a)
+b2f7b3f75270a18c77703346f79624da
+  readImageData ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> GHC.Types.IO (Grid.YY Data.JSString.Internal.Type.JSString)
+576a0aff30b9b75d3ef6ab2851d8ad84
+  rootLabel :: Action.TreeS a -> a
+  RecSel Action.TreeS
+5bd4e9213c30502b6224d020cd8e7f19
+  seqRunL ::
+    GHC.Classes.Eq a =>
+    (a -> a) -> a -> Data.Sequence.Seq a -> Data.Sequence.Seq a
+d9d48b164ea535d624b508a450c1e9a9
+  seqRunR ::
+    GHC.Classes.Eq a =>
+    (a -> a) -> a -> Data.Sequence.Seq a -> Data.Sequence.Seq a
+f7c7b28d981415daa7c0fed79847f91c
+  shiftMDown :: Grid.M a -> GHC.Types.IO (Grid.M a)
+0c2fee4b79ff5801297b3f8b87bf58f1
+  shiftMUp :: Grid.M a -> GHC.Types.IO (Grid.M a)
+73b3f027472e5cbf90428e351ecf2b2f
+  subForest :: Action.TreeS a -> Action.ForestS a
+  RecSel Action.TreeS
+0954c93ec1162072c9627bb05bdcf9fc
+  subSeqs ::
+    (GHC.Classes.Eq a, GHC.Num.Num a) => (a -> a) -> [a] -> [[a]]
+27bab7a1d84e5f8de37189ad1fe1c33d
+  updateArray ::
+    Data.JSString.Internal.Type.JSString
+    -> Grid.M (Grid.Y Action.FCell)
+    -> GHC.Types.IO (Grid.M (Grid.Y Action.FCell))
+075b262d770fa5968656731727e0fed9
+  updateModel ::
+    Action.Action
+    -> Model.Model -> Miso.Effect.Effect Action.Action Model.Model
+ce0fef43477f7991f084b384df7fa83d
+  yRowSeek ::
+    Data.JSString.Internal.Type.JSString
+    -> Grid.Index Grid.Y
+    -> Grid.Y Data.JSString.Internal.Type.JSString
+    -> Data.Map.Base.Map (Grid.Index Grid.YY) ()
+994f0bd2b3c0822dbdfd609718eaeed6
+  yRowSeek' ::
+    Data.JSString.Internal.Type.JSString
+    -> Grid.Y (GHC.Types.Bool, Data.JSString.Internal.Type.JSString)
+    -> Grid.Y (GHC.Types.Bool, Data.JSString.Internal.Type.JSString)
+daeade2ddf61c401c5d1dae616dedd7c
+  yRowSeek'' ::
+    Data.JSString.Internal.Type.JSString
+    -> Grid.Y Action.FCell -> Grid.Y Action.FCell
+d4c6a71f72d1e545a82fbc1ebdbb9a86
+  yyBuild ::
+    Data.JSString.Internal.Type.JSString
+    -> Grid.YY (GHC.Types.Bool, Data.JSString.Internal.Type.JSString)
+    -> Action.TreeS
+         (GHC.Base.Maybe
+            (Grid.YY (GHC.Types.Bool, Data.JSString.Internal.Type.JSString)))
+eba41e2a9716deb672c56a72442286e0
+  yySeek ::
+    Data.JSString.Internal.Type.JSString
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) ()
+    -> Grid.YY Data.JSString.Internal.Type.JSString
+    -> Data.Map.Base.Map (GHC.Types.Int, GHC.Types.Int) ()
+e195232f7806db23c1a1c3ce12a220f0
+  yySeek'' ::
+    Data.JSString.Internal.Type.JSString
+    -> Grid.MY Action.FCell -> GHC.Types.IO (Grid.MY Action.FCell)
+instance GHC.Classes.Eq [Action.TreeS] = Action.$fEqTreeS
+instance Data.Foldable.Foldable [Action.TreeS]
+  = Action.$fFoldableTreeS
+instance GHC.Read.Read [Action.TreeS] = Action.$fReadTreeS
+instance GHC.Show.Show [Action.TreeS] = Action.$fShowTreeS
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

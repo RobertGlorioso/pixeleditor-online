@@ -4,13 +4,11 @@
 
 module Main where
 
-import Store
-
 import Miso
 import Miso.Subscription.Keyboard
-import Model
-import View
-import Action
+import PixEditor.View.Model
+import PixEditor.View
+import PixEditor.View.Action
 
 
 -- | Entry point for a miso application

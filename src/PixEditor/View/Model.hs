@@ -1,13 +1,17 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Model where
+module PixEditor.View.Model where
 
 import GHCJS.Types
 import qualified Data.Map as M
 import Miso.Subscription.Keyboard
-import Grid
+
+import PixEditor.Grid.Data
+import PixEditor.Grid.Transform
+import PixEditor.Grid.Zipper
 
 type Grid =  M.Map Int JSString
 type GridStore =  M.Map JSString Grid
+
 
 -- | Type synonym for an application model
 data Model = Model { mouseCoords :: (Int, Int) --mousetracking for color picker

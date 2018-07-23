@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2018-07-21 21:24:29.125394 UTC
+2018-07-22 17:57:02.463541 UTC
 
 interface main@main:Foreign 7103
-  interface hash: 7ceab18dbcfbc24b5faf28c16a342191
-  ABI hash: c062dd77cac29caf6cbf98586b8e54cc
-  export-list hash: 419841527283dd45d5b1bfb03ce4c1f3
+  interface hash: 3fb1f6e47222af3cb748f8622e80722d
+  ABI hash: 0ba1714ab392a2edd16846be7c61ed64
+  export-list hash: 59635ca96a128b2559f38fc724a24dca
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 21c2bd72b80abdd2ff633643faf0d89d
   sig of: Nothing
@@ -26,6 +26,7 @@ exports:
   Foreign.noArrowScrolling
   Foreign.readResult
   Foreign.readResultURL
+  Foreign.setCORS
   Foreign.setOnLoad
   Foreign.setOnLoad1
   Foreign.setSrc
@@ -189,6 +190,8 @@ f365ae7754ac079c2a53907a492714ba
   readResultURL ::
     GHCJS.Prim.JSVal
     -> GHCJS.Prim.JSVal -> GHC.Types.IO Miso.String.MisoString
+6cc6e6f777df6213f577ea283e5c77bf
+  setCORS :: JavaScript.Web.Canvas.Internal.Image -> GHC.Types.IO ()
 f6bc15edb2f89495b71c2decdef5d775
   setOnLoad ::
     GHCJS.Prim.JSVal

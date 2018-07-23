@@ -1,5 +1,5 @@
 {-# LANGUAGE ForeignFunctionInterface #-}
-module Foreign where
+module PixEditor.Foreign where
 
 import GHCJS.Marshal
 import GHCJS.Types
@@ -14,7 +14,7 @@ foreign import javascript unsafe "var ctx = $1; var x = $2; var y = $3; var pixe
 foreign import javascript unsafe "var ctx = $1; var x = $2; var y = $3; var w = $4; var h = $5; var pixel = ctx.getImageData(x, y, w, h);  var data = pixel.data; $r = data.join()"
   getPixels :: Context -> Int -> Int -> Int -> Int -> IO JSString
 
-foreign import javascript unsafe "$r = document.getElementById($1).getContext('2d');"
+foreign import javascript unsafe "$r = document.getElementById($1).getContext('2d')"
   getCtx :: MisoString -> IO Context
 
 foreign import javascript unsafe "console.log($1);"
@@ -41,6 +41,9 @@ foreign import javascript unsafe "$r = $1.files[0];"
 foreign import javascript unsafe "$r = document.getElementById($1);"
   getElementById :: MisoString -> IO JSVal --String -> Element
 
+foreign import javascript unsafe "$1.crossOrigin='anonymous'"
+  setCORS :: Image -> IO ()
+
 {--
 foreign import javascript unsafe "$1.readAsArrayBuffer($2);"
   readText :: JSVal -> JSVal -> IO () --}
@@ -61,7 +64,7 @@ foreign import javascript unsafe "$1.onload = $2;"
   imgSetOnLoad :: Image -> Callback (IO ()) -> IO () --Image -> (File -> IO ()) -> IO ()
 
 
-
+--this is a faster fill function, but the canvas is too small to make it worthwhile to implement
 fun = "function draw_fill(ctx, x, y, fill_r, fill_g, fill_b, fill_a){\
 \  var stack = [[x, y]];\
 \  var c_width = canvas.width;\

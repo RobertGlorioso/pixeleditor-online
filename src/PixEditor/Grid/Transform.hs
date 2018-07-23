@@ -1,156 +1,188 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE BangPatterns #-}
-
-module Action where
+{-# LANGUAGE TypeFamilies #-} 
+module PixEditor.Grid.Transform where
 
 import qualified Data.Map as M
-import qualified Data.ByteString.Char8 as B
 import qualified Data.Sequence as S
 import qualified Data.JSString as J
 import qualified Data.Vector.Generic
 import qualified Data.Vector as V hiding (modify,length)
-import qualified Data.Vector.Mutable as V
+import qualified Data.Vector.Mutable as V (read, write, length, modify)--hiding (take,replicate,null)
 import Data.Sequence (ViewL(..), ViewR(..),(<|),(|>))
 import Data.Maybe (catMaybes)
 import Data.List
+import Control.Comonad
+import Data.Monoid
+import Data.Ord
 import Data.Tree
-import Data.JSString (unpack)
+import Data.JSString (JSString,unpack)
 import Lens.Micro.Platform
-import Control.Concurrent.MVar
-import Miso hiding (update)
-import Miso.Subscription.Keyboard
-import Miso.String (MisoString, (<>), pack)
-import qualified Miso.Svg as Svg
-import JavaScript.Web.Canvas
-import GHCJS.Types
-import GHCJS.Marshal
-import GHCJS.Foreign.Callback
-import CanvasBS
-import Model
-import Grid
-import Foreign
 
--- | Sum type for application events
-data Action
-  = HandleMouse (Int, Int)
-  | GetArrows !Arrows
-  | PickColor JSString
-  | Rename JSString
-  | Review JSString
-  | RedrawGrid (YY JSString)
-  | Fill (Int,Int)
-  | Opacity JSString
-  | Selected (Int,Int)
-  | PixelResize Int
-  | PickSpectrum
-  | UpdatePic
-  | UpdateGrid
-  | SwitchFill
-  | ReadFile
-  | Begin
-  | PixelPaint
-  | Paint
-  | Id
+import PixEditor.Foreign
+import PixEditor.Foreign.CanvasBS
+import PixEditor.Grid.Data
+import PixEditor.Grid.Zipper
 
--- | Updates model, optionally introduces side effects
-updateModel :: Action -> Model -> Effect Action Model
-updateModel (HandleMouse newCoords) m = noEff m { mouseCoords = newCoords }
+compose :: Int -> (a -> a) -> (a -> a)
+compose = (foldr (.) id .) . replicate
 
-updateModel (GetArrows a@(Arrows x y)) m = let (i,j) = selected m in (pure $ Selected (i-y,j+x) ) #>  m { getArrows = a }
+instance Functor Y where
+  fmap f (Y l c i) = Y (fmap f l) (fmap f c) i
 
-updateModel (PickColor p) m = noEff m {color = p}
+instance Comonad Y where
+  extract = maybe (error "cursor not on grid") id . _yc 
+  duplicate y = Y (S.fromFunction (size y - 1) fn) (Just y) ( y ^. yi )
+    where fn k = compose (k + 1) ( shift YL ) y
 
-updateModel (Selected i) m@(Model _ col _ _ _ y _ _ _ _) = noEff m { selected = i, gridY = update col i y }
+instance Functor V where
+  fmap f (V l c i) = V (fmap f l) (fmap f c) i
 
-updateModel UpdatePic m = noEff m {
-  store = M.insert (title m) (grid m) (store m)
-  }
-  where insert' j k l --if user doesnt want to rename (or to animate a set of frames..?)
-          | j `elem` M.keys l = insert' (j <> "'") k l
-          | True              = M.insert j k l       
+instance Functor VY where
+  fmap f = VY . (fmap . fmap) f . _unvy
 
-updateModel (PixelResize i) m = noEff m { pix = i }
+instance Functor YY where
+  fmap f = YY . (fmap . fmap) f . _unyy
 
-updateModel PickSpectrum m = m <# do
-  let (x,y) = mouseCoords m
-  ctx <- getCtx "spectrum"
-  p <- getPixel ctx x y
-  return $ PickColor p
+instance Comonad YY where
+  extract = maybe (error "cursor not on grid")  id . cursor
+  duplicate z = YY $ Y
+    (fromF (xT - 1) mkCol) (Just $ Y (fromF (yT - 1) ( mkRow z)) (Just z) y) x
+    where
+      mkRow zx j = compose (j + 1) (shift YS) zx
+      mkCol i    = let zx = compose (i + 1) (shift YW) z
+                    in Y (fromF (yT - 1) (mkRow zx)) (Just zx) (zx ^. to index  ^. _2)
+      (xT,yT)    = size z
+      (x,y)      = index z
+      fromF      = S.fromFunction
 
-updateModel (RedrawGrid i) m = noEff m {gridY = i }
-
-updateModel (Rename r) m = noEff m { title = r }
-
-updateModel (Review r) m = noEff m { title = r, grid = maybe mempty id $ M.lookup r (store m) }
-
-updateModel SwitchFill m = noEff m { fillSwitch = not $ fillSwitch m }
-
-updateModel (Fill i) m@(Model _ curColor cursor _ _ yy _ _ _ _) = do
-{--  m <- mutateV $ _unvy $ (\c -> if c == vy ! i then (False,c) else (False,c)) <$> vy
-  filled <- yySeek'' curColor $ MY m
-  v' <- freezeM $ _unmy filled
-  return (Fill $ fmap snd $ VY v')
---}
-  return Id -- (Selected i)
-  #> m { gridY = maybe yy id $ (fmap.fmap) (\(b,c) -> if b then curColor else c) $ foldl' merge' (Just yGrid) $ yyBuild (yy ! i) (adjustYTo i yGrid) }
-  where yGrid = fmap (False,) yy
-  
-updateModel Paint m = m <# do
-  let (d,e) = size $ gridY m
-  
-  ctx <- getCtx (title m)
-  let g = gridY m
-  let p = pix m
-  v <- toJSVal $ toNumbBSN' p d $ toList g
-  --log_ v
-  --draw ctx (p*d, p*e, toNumbBSN p d $ toList g)
-  drawImageData ctx (p*d) (p*e) (v)
-  return Id
-
-updateModel ReadFile m = m <# do
-  let (d,e) = size $ gridY m
-  
-  g <- readImageData d e
-  return $ RedrawGrid g
-  
-updateModel Id m = noEff m
-
-updateModel Begin m = m <# do
-  getPic "../../image/First" "spectrum"
-  noArrowScrolling
-  return Id
-
-readImageData d e = do
-  fileReaderInput <- getElementById "fileReader"
-  file <- getFile fileReaderInput
-  reader <- newReader
-  canvas <- getCtx "hiddenCanvas"
-  g <- newEmptyMVar
-  setOnLoad1 reader =<< do
-    img <- newImage
-    cb <- asyncCallback $ do
-        drawImage img 0 0 d e canvas
-        picdata <- getPixels canvas 0 0 e d
-        r <- return $ fromBSArray picdata
-        putMVar g (fromMap "brown" $ zip [(x,y) | x <- [0..(d-1)], y <- [0..(e-1)]] r :: YY JSString)
-    imgSetOnLoad img cb
-    asyncCallback1 $ \file -> do
-      r <- readResult file
-      setSrc img r
-  readResultURL reader file
-  readMVar g
-  
-getPic p c = do
-  ctx <- getCtx c
-  canvasImage <- newImage
-  drawImage' canvasImage ctx
-  setSrc canvasImage p
-  save ctx
+instance Zipper Y where
+  type Index Y = Int
+  data Direction Y = YL | YR deriving (Eq, Show)
+  cursor = _yc
+  index = _yi
+  resize a y@(Y l c i) n = let s = size y in
+    case compare s n of
+      LT -> Y (l <> S.replicate (n - s) a) c i
+      GT -> uncurry (Y (S.take n l)) $ if i < n then (c,i) else (Just a,n) 
+      EQ -> y 
+  size (Y l _ _) = S.length l 
+  (!) (Y l c _) k = l `S.index` k
+  adjust f k y@(Y l c i) = case l ?! k of
+    Nothing  -> y
+    (Just j) -> y { _yl = S.adjust f k l, _yc = if k == i then f <$> c else c  }
+  toList (Y l c i) = foldr (:) [] l
+  fromMap _ [] = error "Zipper must have length greater than zero."
+  fromMap a m = Y (S.fromList ys) (Just . snd $ minimumBy (comparing fst) m) 0
+    where ys = fmap snd m
+         
+  shift d v@(Y l c i)
+    | S.null l = v -- shifting length zero amounts to nothing
+    | d == YL   = Y l ( l ?! (i - 1) ) (i - 1)
+    | d == YR   = Y l ( l ?! (i + 1) ) (i + 1)
 
 
+instance Zipper V where
+  type Index V = Int
+  data Direction V = VL | VR deriving (Eq, Show)
+
+  cursor = _vc
+  index = _vi
+  size (V l _ _) = length l + 1
+  (!) v k = (_vl v) V.! k
+  adjust f k v@(V l c i) = case l V.!? k of
+    Nothing  -> v
+    (Just j) -> v { _vl = V.update l (V.fromList [(k,j)]), _vc = if k == i then f <$> c else c  }
+  neighborhood (V l _ _)
+    | length l <= 2 = V.toList l
+    | otherwise       = map ((V.!) l) [0, length l - 1]
+  toList (V l c i) = V.toList l
+  fromMap _ [] = error "Zipper must have length greater than zero."
+  fromMap a m = V (V.fromList vs) (Just . snd $ minimumBy (comparing fst) m) 0
+    where vs = fmap snd m
+          
+  shift d v@(V l c i)
+    | V.null l = v 
+    | d == VL   = V l (l V.!? (i - 1) ) (i-1)
+    | d == VR   = V l (l V.!? (i + 1) ) (i+1)
+
+
+instance Zipper VY where
+  type Index VY = (Int, Int)
+  data Direction VY = VN | VE | VS | VW deriving (Eq, Show)
+  cursor vy = cursor =<< (_vc $ _unvy vy)
+  adjust f (a, b) vy@(VY v@(V l c r)) = case l V.!? a of
+    Nothing  -> vy
+    (Just p) -> let
+      yc =  adjust f b p in
+      shift VN $ shift VS $ VY $ v { _vl = V.update l (V.fromList [(a,yc)]) } 
+  (!) z (x, y) = (_unvy z) ! x ! y
+  resize a ( VY (v@(V l c i))) (n,m) = let s = length l
+                                           nullRow = (Y (S.replicate m a) (Just a) 0)
+                                           comparison = case compare s n of
+                                             LT -> uncurry (V (V.take n l)) $ if i < n then (c,i) else (Just nullRow , n) 
+                                             GT -> V (l <> V.replicate (n-s) nullRow) c i
+                                             EQ -> v
+                                       in VY $ fmap (\yrow -> resize a yrow m) comparison
+  size z = (x, y)
+    where x = z ^. unvy ^. to size
+          y = maximum $ size <$> z ^. unvy ^. vl
+  index z = (x, y)
+    where x = z ^. unvy ^. vi
+          y = maybe (error "out of bounds") _yi $ z ^. unvy ^. vc
+  shift VE = (& unvy %~ shift VR)
+  shift VW = (& unvy %~ shift VL)
+  shift VN = (& unvy %~ fmap (shift YR))
+  shift VS = (& unvy %~ fmap (shift YL))
+  fromMap _ [] = error "Zipper must have length greater than zero."
+  fromMap a m  =  VY $ V (V.fromList cs) (Just $ head cs) 0
+    where cs        = fmap (fromMap a) $ (fmap.fmap) (& _1 %~ snd) g 
+          g         = groupBy (\a b -> (fst $ fst a) == (fst $ fst b)) m
+          l         = length m
+
+instance Zipper YY where
+  type Index YY = (Int, Int)
+  data Direction YY = YN | YE | YS | YW deriving (Eq, Show)
+
+  cursor y = cursor =<< (_yc $ _unyy y)
+  toList = foldl (++) [] . fmap toList . _yl . _unyy
+  adjust f (a, b) yy@(YY y@(Y l c r)) = case l ?! a of
+    Nothing  -> yy
+    (Just p) -> let
+      yc =  adjust f b p in
+      shift YN $ shift YS $ YY $ y { _yl = S.update a yc l }
+  (!) z (x, y) = (_unyy z) ! x ! y
+  resize a ( YY (v@(Y l c i))) (n,m) = let s = length l
+                                           nullRow = (Y (S.replicate m a) (Just a) 0)
+                                           comparison = case compare n s of
+                                             LT -> uncurry (Y (S.take n l)) $ if i < n then (c,i) else (Just nullRow , n) 
+                                             GT -> Y (l <> S.replicate (n-s) nullRow) c i
+                                             EQ -> v
+                                       in YY $ fmap (\yrow -> resize a yrow m) comparison
+  size z = (x, y)
+    where x = z ^. unyy ^. to size
+          y = maximum $ size <$> z ^. unyy ^. yl
+  index z = (x, y)
+    where x = z ^. unyy ^. yi
+          y = maybe (error "out of bounds") _yi $ z ^. unyy ^. yc 
+  shift YE = (& unyy %~ fmap (shift YR))
+  shift YW = (& unyy %~ fmap (shift YL))
+  shift YN = (& unyy %~ shift YR)
+  shift YS = (& unyy %~ shift YL)
+  {--neighborhood (YY (Y l c _)) = ns ++ ew
+    where ns  = neighborhood c
+          ewc = if (S.length l <= 2)
+                   then F.toList l
+                   else map (S.index l) [0, S.length l - 1]
+          ew  = concatMap neighborhood' ewc
+          neighborhood' z = (z ^. zc) : neighborhood z --}
+  fromMap _ [] = error "Zipper must have length greater than zero."
+  fromMap a m  = YY $ Y (S.fromList cs) (Just $ head cs) 0
+    where cs        = fmap (fromMap a) $ (fmap.fmap) (& _1 %~ snd) g 
+          g         = groupBy (\a b -> (fst $ fst a) == (fst $ fst b)) m
+          l         = length m
 
 
 
@@ -163,7 +195,17 @@ getPic p c = do
 
 
 
+adjustYTo (i,j) = adjustYCol j . adjustYRow i
+adjustYCol j y = y & (unyy . yl . mapped ) %~ (adjustYin j) & (unyy . yc . mapped ) %~ (adjustYin j)
+adjustYRow i = YY . adjustYin i . _unyy
+adjustYin a yy@(Y arr y _) = yy { _yc = arr ?! a
+                                , _yi = a }
 
+(?!) :: S.Seq a -> Int -> Maybe a
+(?!) xs i
+  | i < 0 = Nothing
+  | length xs <= i = Nothing
+  | True = Just (xs `S.index` i)
 
 
 --------bad----code--------

@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2018-07-21 21:24:24.493256 UTC
+2018-07-22 17:57:01.302431 UTC
 
 interface K0d86YrFTPVHDG8f2hkJsO:Action 7103
-  interface hash: 086fe0813b21d6d4baa3f476eccef7bc
-  ABI hash: c8faba75c2b03721efab41cdc7bead63
+  interface hash: 4278ae67c326b8418fb0bb4e9fcd90d5
+  ABI hash: cb7701e9c0d53f9dec6d47867da276a6
   export-list hash: 373e1ff677ab1e5a2950c1e408cb31ae
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: c1671ae4e2ca0cc1bd4b1965d4ce7ff7
@@ -188,8 +188,8 @@ import  -/  CanvasBS acb9b8dedd7d1bd0e688220345a48197
   drawImageData eb5529c5153cf1a60d24b7834913636d
   fromBSArray be6171b553ab71fc21c5c349dbece942
   toNumbBSN' 5fbae004ea6bc0f421037515efaeae3f
-import  -/  Foreign fb6f8a2ee4c26f7f913b0fa1d7b1b9fa
-  exports: 24bd8dddfbb135d533cc604c77b035cc
+import  -/  Foreign fd64849e740c7a6d21ef052f7725cd25
+  exports: 8c173f1840b45aeb9df44ec4149b8dce
   drawImage' c6ab82c3f7e2d10953a835ef4b47db9b
   getCtx 2ff42c42a1aac22d0eae4d53d401e221
   getElementById 7e1d51a40e4f171eb4998c3b7e9bf68a
@@ -202,6 +202,7 @@ import  -/  Foreign fb6f8a2ee4c26f7f913b0fa1d7b1b9fa
   noArrowScrolling b85abca19d9a0e9f85232d683f4ddc31
   readResult 3b47a06a75d776bfbe2f27c59d8842af
   readResultURL 6744af18fc9b8e1adb94b6023f1ca2a8
+  setCORS 3a14b57074c01a96d0aaedc520a59c91
   setOnLoad1 dc276fb62a559b27d28540b0188f906e
   setSrc 1ac5c5026233c45246486d8994d10f52
 import  -/  Grid 1c8b305fae8c4586fedc8ea8a3bd404e
@@ -344,9 +345,10 @@ e28286b2081ee1c4c98c360b4f16c72e
   adjustMin :: GHC.Types.Int -> Grid.M a -> GHC.Types.IO (Grid.M a)
 47845e7460359620b6037c9d03311007
   freezeM :: Grid.M a -> GHC.Types.IO (Grid.V a)
-7ab50509a6a2a8ea1d20da6168dbb0c5
+6fc78d229c38333037aff2b978b89589
   getPic ::
-    Miso.String.MisoString -> Miso.String.MisoString -> GHC.Types.IO ()
+    Miso.String.MisoString
+    -> JavaScript.Web.Canvas.Internal.Context -> GHC.Types.IO ()
 5752d5c97a73253dc67dfc9d8977f99c
   merge' ::
     GHC.Classes.Eq t =>

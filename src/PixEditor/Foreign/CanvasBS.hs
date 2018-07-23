@@ -2,7 +2,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE ForeignFunctionInterface #-}
 
-module CanvasBS where
+module PixEditor.Foreign.CanvasBS where
 
 import Foreign.Ptr (Ptr)
 import GHCJS.Types (JSVal(..))

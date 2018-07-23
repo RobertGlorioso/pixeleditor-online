@@ -1,18 +1,22 @@
-{-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns #-}
-module View where
+{-# LANGUAGE ScopedTypeVariables #-}
+module PixEditor.View where
 
 import qualified Data.Map as M
-import qualified Data.Sequence as S
 import qualified Miso.Svg as Svg
-import Safe
+import qualified Data.Sequence as S
+import GHCJS.Types
+import Data.JSString (JSString,unpack,pack)
+import Miso
 import Miso.Svg hiding (onMouseDown, onClick, style_, width_, height_, id_)
 import Miso.String hiding (zip, length, replicate)
-import Miso
-import Model
-import Action
-import Grid
+import Safe
+
+import PixEditor.View.Action
+import PixEditor.View.Model
+import PixEditor.Grid.Data
+import PixEditor.Grid.Zipper
 
 viewModel :: Model -> View Action
 viewModel (Model (i,j) c s pixelSize l y _ gridstore title fillSwitch) =

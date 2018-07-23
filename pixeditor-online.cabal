@@ -6,8 +6,20 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
-  hs-source-dirs:      .
-  exposed-modules:     CanvasBS, Foreign, Grid, View, Model, Action
+  hs-source-dirs:      src
+  exposed-modules:     PixEditor.Grid
+                     , PixEditor.Grid.Data
+                     , PixEditor.Grid.Zipper
+                     , PixEditor.Grid.Transform
+                     , PixEditor.Grid.Store
+
+                     , PixEditor.View
+                     , PixEditor.View.Model
+                     , PixEditor.View.Action
+
+                     , PixEditor.Foreign
+                     , PixEditor.Foreign.CanvasBS
+                
   build-depends:       adjunctions >= 4.3
                      , base >= 4.7 && < 5
                      , bytestring

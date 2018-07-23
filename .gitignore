@@ -6,7 +6,7 @@
 autosavelist
 tramp
 .\#*
-/.stack-work
+/.stack-work/*
 dist
 dist-*
 cabaldev

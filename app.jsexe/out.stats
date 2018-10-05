@@ -1,13 +1,13 @@
 code size summary per package:
 
-5mjpZR7E0lJ11826Io70iT:  128755
+5mjpZR7E0lJ11826Io70iT:  131621
 Gm3DcwSuiMWJO89TulH9T1:  2152
 IwZTMSe3Ivv9yhoBZv26Oz:  429
-K0d86YrFTPVHDG8f2hkJsO:  216738
+K0d86YrFTPVHDG8f2hkJsO:  219830
 L9DNYpQqFEEG6Irhz79OYV:  5023
 aeson_JVzbBMTMmQ32nxHUK3Dk9p:33279
-base:                    591154
-conta_3UVKjic2MoqF92jHhg7Ur8:1136367
+base:                    588944
+conta_3UVKjic2MoqF92jHhg7Ur8:1135028
 deeps_6zNFUGyDFQ59UU8BCTkqk0:856
 ghc-prim:                35893
 ghcjs_7b01A0aGNCoHSoxWaQfJsm:35865
@@ -31,7 +31,7 @@ code size per module:
     Miso.Event.Types:                   21748
     Miso.FFI:                           10610
     Miso.Html.Element:                  4290
-    Miso.Html.Event:                    1752
+    Miso.Html.Event:                    4618
     Miso.Html.Internal:                 26475
     Miso.Html.Property:                 5244
     Miso.String:                        102
@@ -50,14 +50,14 @@ IwZTMSe3Ivv9yhoBZv26Oz
     Control.Comonad:                    429
 
 K0d86YrFTPVHDG8f2hkJsO
-    PixEditor.Foreign:                  6918
+    PixEditor.Foreign:                  7409
     PixEditor.Foreign.CanvasBS:         12156
     PixEditor.Grid.Data:                7075
     PixEditor.Grid.Transform:           64709
-    PixEditor.Grid.Zipper:              4321
-    PixEditor.View:                     72069
-    PixEditor.View.Action:              36994
-    PixEditor.View.Model:               12496
+    PixEditor.Grid.Zipper:              4262
+    PixEditor.View:                     73778
+    PixEditor.View.Action:              36377
+    PixEditor.View.Model:               14064
 
 L9DNYpQqFEEG6Irhz79OYV
     Safe:                               5023
@@ -89,7 +89,7 @@ base
     Foreign.Marshal.Array:              2052
     Foreign.Storable:                   2700
     GHC.Arr:                            3682
-    GHC.Base:                           15856
+    GHC.Base:                           13646
     GHC.Char:                           724
     GHC.Conc.Sync:                      7900
     GHC.Enum:                           10136
@@ -134,7 +134,7 @@ base
     Text.Read.Lex:                      70727
 
 conta_3UVKjic2MoqF92jHhg7Ur8
-    Data.Map.Base:                      81183
+    Data.Map.Base:                      79844
     Data.Sequence:                      1028066
     Data.Set.Base:                      27118
 
@@ -189,5 +189,5 @@ vecto_DeaUpJs6ZtbBhz15yBYLWJ
 
 
 
-packed metadata: 315423
+packed metadata: 316415
 

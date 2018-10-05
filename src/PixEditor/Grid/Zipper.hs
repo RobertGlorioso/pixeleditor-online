@@ -5,7 +5,6 @@ module PixEditor.Grid.Zipper where
 
 import Control.Comonad
 
-
 -- | Class for a (modular) bounded container
 --
 -- Examples of functions provided for a simple one dimensional list, where appropriate

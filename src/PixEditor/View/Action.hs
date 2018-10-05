@@ -33,26 +33,28 @@ data Action
   | Fill (Int,Int)
   | Opacity JSString
   | Selected (Int,Int)
+  | DragSelected (Int,Int)
   | PixelResize Int
   | PickSpectrum
   | UpdatePic
   | UpdateGrid
-  | SwitchFill
+  | SwitchGrid (GridControl)
   | ReadFile
   | Begin
   | PixelPaint
+  | HideGrid
   | Paint
   | Id
 
 -- | Updates model, optionally introduces side effects
 updateModel :: Action -> Model -> Effect Action Model
-updateModel (HandleMouse newCoords) m = noEff m { mouseCoords = newCoords }
+updateModel (HandleMouse newCoords) m = noEff  m { mouseCoords = newCoords }
 
 updateModel (GetArrows a@(Arrows x y)) m = let (i,j) = selected m in (pure $ Selected (i-y,j+x) ) #>  m { getArrows = a }
 
 updateModel (PickColor p) m = noEff m {color = p}
 
-updateModel (Selected i) m@(Model _ col _ _ _ y _ _ _ _) = noEff m { selected = i, gridY = update col i y }
+updateModel (Selected i) m = noEff m { selected = i, gridY = update (color m) i (gridY m) }
 
 updateModel UpdatePic m = noEff m {
   store = M.insert (title m) (grid m) (store m)
@@ -69,33 +71,34 @@ updateModel PickSpectrum m = m <# do
   p <- getPixel ctx x y
   return $ PickColor p
 
-updateModel (RedrawGrid i) m = noEff m {gridY = i }
+updateModel (RedrawGrid i) m = noEff m { gridY = i }
 
 updateModel (Rename r) m = noEff m { title = r }
 
-updateModel (Review r) m = noEff m { title = r, grid = maybe mempty id $ M.lookup r (store m) }
+--updateModel (Review r) m = noEff m { title = r, grid = maybe mempty id $ M.lookup r (store m) }
 
-updateModel SwitchFill m = noEff m { fillSwitch = not $ fillSwitch m }
+updateModel (SwitchGrid i) m = noEff m { gridCont = i}  -- not $ fillSwitch m }
 
-updateModel (Fill i) m@(Model _ curColor cursor _ _ yy _ _ _ _) = do
-{--  m <- mutateV $ _unvy $ (\c -> if c == vy ! i then (False,c) else (False,c)) <$> vy
+updateModel (Fill i) m = {--  m <- mutateV $ _unvy $ (\c -> if c == vy ! i then (False,c) else (False,c)) <$> vy
   filled <- yySeek'' curColor $ MY m
   v' <- freezeM $ _unmy filled
   return (Fill $ fmap snd $ VY v')
 --}
-  return Id -- (Selected i)
-  #> m { gridY = maybe yy id $ (fmap.fmap) (\(b,c) -> if b then curColor else c) $ foldl' merge' (Just yGrid) $ yyBuild (yy ! i) (adjustYTo i yGrid) }
-  where yGrid = fmap (False,) yy
+  --return Id -- (Selected i)
+  noEff m { gridY = maybe yy id $ (fmap.fmap) (\(b,c) -> if b then curColor else c) $ foldl' merge' (Just yGrid) $ yyBuild (yy ! i) (adjustYTo i yGrid) }
+  where cursor = selected m
+        curColor = color m
+        yy = gridY m
+        yGrid = fmap (False,) yy
   
 updateModel Paint m = m <# do
   let (d,e) = size $ gridY m
   ctx <- getCtx (title m)
   let g = gridY m
   let p = pix m
-  v <- toJSVal $ toNumbBSN' p d $ toList g
+  v <- toJSVal $ toNumbBSN' p e $ toList g
   --log_ v
-  --draw ctx (p*d, p*e, toNumbBSN p d $ toList g)
-  drawImageData ctx (p*d) (p*e) (v)
+  drawImageData ctx (p*e) (p*d) (v)
   return Id
 
 updateModel ReadFile m = m <# do
@@ -110,6 +113,7 @@ updateModel Begin m = m <# do
   ctx <- getCtx "spectrum"
   getPic "../image/spectrum.jpg" ctx
   noArrowScrolling
+  noDragging
   return Id
 
 readImageData d e = do

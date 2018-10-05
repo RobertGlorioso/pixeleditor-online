@@ -1,15 +1,15 @@
 resolver: lts-6.20
 compiler: ghcjs-0.2.0.9006020_ghc-7.10.3
 compiler-check: match-exact
-
 packages:
  - '.'
 extra-deps:
  - miso-0.10.0.0
+# - ghcjs-base-0.2.0.0
 # - jsaddle-0.9.5.0
 # - grid-7.8.9
-# - streaming-png-0.1.0.0
 # - JuicyPixels-3.2.9.3
+
  
 setup-info:
   ghcjs:
@@ -17,3 +17,10 @@ setup-info:
       ghcjs-0.2.0.9006020_ghc-7.10.3:
          url: http://ghcjs.tolysz.org/lts-6.20-9006020.tar.gz
          sha1: a6cea90cd8121eee3afb201183c6e9bd6bacd94a
+
+#setup-info:
+#  ghcjs:
+#    source:
+#      ghcjs-0.2.0.9011009_ghc-8.4.1:
+#         url: http://ghcjs.tolysz.org/lts-6.20-9006020.tar.gz
+#         sha1: a6cea90cd8121eee3afb201183c6e9bd6bacd94a

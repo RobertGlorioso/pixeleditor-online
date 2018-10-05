@@ -6,8 +6,6 @@ import Data.Vector.Mutable (IOVector)
 import qualified Data.Sequence as S
 import Lens.Micro.TH
 
-
-
 data Y a = Y { _yl :: S.Seq a
              , _yc :: Maybe a
              , _yi :: Int

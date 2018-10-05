@@ -32,6 +32,10 @@ foreign import javascript unsafe "$1.src = $2;"
 foreign import javascript unsafe "window.addEventListener('keydown', function(e) { if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { e.preventDefault();} }, false);"
   noArrowScrolling :: IO ()
 
+
+foreign import javascript unsafe "Array.from(document.getElementsByTagName('rect')).forEach( function (t) {t.draggable = false});"
+  noDragging :: IO ()
+
 foreign import javascript unsafe "$r = new FileReader();"
   newReader :: IO JSVal --FileReader
  

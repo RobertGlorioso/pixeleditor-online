@@ -10,7 +10,7 @@ import qualified Data.Sequence as S
 import qualified Data.JSString as J
 import qualified Data.Vector.Generic
 import qualified Data.Vector as V hiding (modify,length)
-import qualified Data.Vector.Mutable as V (read, write, length, modify)--hiding (take,replicate,null)
+import qualified Data.Vector.Mutable as V (read, write, length, modify)
 import Data.Sequence (ViewL(..), ViewR(..),(<|),(|>))
 import Data.Maybe (catMaybes)
 import Data.List
@@ -29,22 +29,29 @@ import PixEditor.Grid.Zipper
 compose :: Int -> (a -> a) -> (a -> a)
 compose = (foldr (.) id .) . replicate
 
+-- Functor instances
+
 instance Functor Y where
   fmap f (Y l c i) = Y (fmap f l) (fmap f c) i
 
-instance Comonad Y where
-  extract = maybe (error "cursor not on grid") id . _yc 
-  duplicate y = Y (S.fromFunction (size y - 1) fn) (Just y) ( y ^. yi )
-    where fn k = compose (k + 1) ( shift YL ) y
-
 instance Functor V where
   fmap f (V l c i) = V (fmap f l) (fmap f c) i
+
+instance Functor VV where
+  fmap f = VV . (fmap . fmap) f . _unvv
 
 instance Functor VY where
   fmap f = VY . (fmap . fmap) f . _unvy
 
 instance Functor YY where
   fmap f = YY . (fmap . fmap) f . _unyy
+
+-- Comonad instances
+
+instance Comonad Y where
+  extract = maybe (error "cursor not on grid") id . _yc 
+  duplicate y = Y (S.fromFunction (size y - 1) fn) (Just y) ( y ^. yi )
+    where fn k = compose (k + 1) ( shift YL ) y
 
 instance Comonad YY where
   extract = maybe (error "cursor not on grid")  id . cursor
@@ -57,6 +64,8 @@ instance Comonad YY where
       (xT,yT)    = size z
       (x,y)      = index z
       fromF      = S.fromFunction
+
+-- Zipper instances
 
 instance Zipper Y where
   type Index Y = Int
@@ -76,18 +85,15 @@ instance Zipper Y where
   toList (Y l c i) = foldr (:) [] l
   fromMap _ [] = error "Zipper must have length greater than zero."
   fromMap a m = Y (S.fromList ys) (Just . snd $ minimumBy (comparing fst) m) 0
-    where ys = fmap snd m
-         
+    where ys = fmap snd m      
   shift d v@(Y l c i)
     | S.null l = v -- shifting length zero amounts to nothing
     | d == YL   = Y l ( l ?! (i - 1) ) (i - 1)
     | d == YR   = Y l ( l ?! (i + 1) ) (i + 1)
 
-
 instance Zipper V where
   type Index V = Int
   data Direction V = VL | VR deriving (Eq, Show)
-
   cursor = _vc
   index = _vi
   size (V l _ _) = length l + 1
@@ -102,12 +108,10 @@ instance Zipper V where
   fromMap _ [] = error "Zipper must have length greater than zero."
   fromMap a m = V (V.fromList vs) (Just . snd $ minimumBy (comparing fst) m) 0
     where vs = fmap snd m
-          
   shift d v@(V l c i)
     | V.null l = v 
     | d == VL   = V l (l V.!? (i - 1) ) (i-1)
     | d == VR   = V l (l V.!? (i + 1) ) (i+1)
-
 
 instance Zipper VY where
   type Index VY = (Int, Int)

@@ -111,8 +111,9 @@ updateModel Id m = noEff m
 
 updateModel Begin m = m <# do
   ctx <- getCtx "spectrum"
-  getPic "../image/spectrum.jpg" ctx
+  getPic "./image/spectrum.jpg" ctx
   noArrowScrolling
+  noMouseScrolling
   noDragging
   return Id
 

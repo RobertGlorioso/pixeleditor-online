@@ -1,12 +1,12 @@
 code size summary per package:
 
-5mjpZR7E0lJ11826Io70iT:  131621
+5mjpZR7E0lJ11826Io70iT:  129713
 Gm3DcwSuiMWJO89TulH9T1:  2152
 IwZTMSe3Ivv9yhoBZv26Oz:  429
-K0d86YrFTPVHDG8f2hkJsO:  219830
+K0d86YrFTPVHDG8f2hkJsO:  234711
 L9DNYpQqFEEG6Irhz79OYV:  5023
 aeson_JVzbBMTMmQ32nxHUK3Dk9p:33279
-base:                    588944
+base:                    656690
 conta_3UVKjic2MoqF92jHhg7Ur8:1135028
 deeps_6zNFUGyDFQ59UU8BCTkqk0:856
 ghc-prim:                35893
@@ -31,7 +31,7 @@ code size per module:
     Miso.Event.Types:                   21748
     Miso.FFI:                           10610
     Miso.Html.Element:                  4290
-    Miso.Html.Event:                    4618
+    Miso.Html.Event:                    2710
     Miso.Html.Internal:                 26475
     Miso.Html.Property:                 5244
     Miso.String:                        102
@@ -50,13 +50,13 @@ IwZTMSe3Ivv9yhoBZv26Oz
     Control.Comonad:                    429
 
 K0d86YrFTPVHDG8f2hkJsO
-    PixEditor.Foreign:                  7409
+    PixEditor.Foreign:                  7835
     PixEditor.Foreign.CanvasBS:         12156
     PixEditor.Grid.Data:                7075
     PixEditor.Grid.Transform:           64709
     PixEditor.Grid.Zipper:              4262
-    PixEditor.View:                     73778
-    PixEditor.View.Action:              36377
+    PixEditor.View:                     88032
+    PixEditor.View.Action:              36578
     PixEditor.View.Model:               14064
 
 L9DNYpQqFEEG6Irhz79OYV
@@ -69,7 +69,7 @@ aeson_JVzbBMTMmQ32nxHUK3Dk9p
 
 base
     Control.Applicative:                212
-    Control.Exception.Base:             8279
+    Control.Exception.Base:             8803
     Data.Bits:                          386
     Data.Either:                        397
     Data.Foldable:                      19040
@@ -92,11 +92,12 @@ base
     GHC.Base:                           13646
     GHC.Char:                           724
     GHC.Conc.Sync:                      7900
-    GHC.Enum:                           10136
+    GHC.Enum:                           10330
     GHC.Err:                            220
     GHC.Exception:                      6664
-    GHC.Float:                          78624
+    GHC.Float:                          134426
     GHC.Float.ConversionUtils:          3400
+    GHC.Float.RealFracMethods:          187
     GHC.Foreign:                        12243
     GHC.ForeignPtr:                     1271
     GHC.IO:                             3792
@@ -115,15 +116,15 @@ base
     GHC.IO.Handle.Types:                3583
     GHC.IORef:                          166
     GHC.Int:                            806
-    GHC.List:                           20189
+    GHC.List:                           22731
     GHC.MVar:                           1147
     GHC.Num:                            3377
     GHC.Ptr:                            188
     GHC.Read:                           18169
-    GHC.Real:                           23515
+    GHC.Real:                           30288
     GHC.ST:                             188
     GHC.STRef:                          194
-    GHC.Show:                           18455
+    GHC.Show:                           20179
     GHC.Storable:                       1094
     GHC.TopHandler:                     13710
     GHC.Word:                           3144
@@ -189,5 +190,5 @@ vecto_DeaUpJs6ZtbBhz15yBYLWJ
 
 
 
-packed metadata: 316415
+packed metadata: 326959
 

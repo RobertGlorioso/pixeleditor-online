@@ -1,3 +1,4 @@
+
 {-# LANGUAGE ForeignFunctionInterface #-}
 module PixEditor.Foreign where
 
@@ -32,9 +33,12 @@ foreign import javascript unsafe "$1.src = $2;"
 foreign import javascript unsafe "window.addEventListener('keydown', function(e) { if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { e.preventDefault();} }, false);"
   noArrowScrolling :: IO ()
 
+foreign import javascript unsafe "window.addEventListener('mousedown', function(e) {  e.preventDefault()  }, false);"
+  noMouseScrolling :: IO ()
 
 foreign import javascript unsafe "Array.from(document.getElementsByTagName('rect')).forEach( function (t) {t.draggable = false});"
   noDragging :: IO ()
+
 
 foreign import javascript unsafe "$r = new FileReader();"
   newReader :: IO JSVal --FileReader
@@ -68,7 +72,6 @@ foreign import javascript unsafe "$1.onload = $2;"
   imgSetOnLoad :: Image -> Callback (IO ()) -> IO () --Image -> (File -> IO ()) -> IO ()
 
 
---this is a faster fill function, but the canvas is too small to make it worthwhile to implement
 fun = "function draw_fill(ctx, x, y, fill_r, fill_g, fill_b, fill_a){\
 \  var stack = [[x, y]];\
 \  var c_width = canvas.width;\

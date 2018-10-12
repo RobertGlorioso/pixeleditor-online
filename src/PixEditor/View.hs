@@ -10,7 +10,7 @@ import GHCJS.Types
 import Data.JSString (JSString,unpack,pack)
 import Miso
 import Miso.Svg hiding (onMouseOver, onMouseUp, onMouseDown, onClick, style_, width_, height_, id_)
-import Miso.String hiding (zip, length, replicate)
+import Miso.String hiding (zip, zipWith, length, replicate)
 import Safe
 
 import PixEditor.View.Action
@@ -19,7 +19,7 @@ import PixEditor.Grid.Data
 import PixEditor.Grid.Zipper
 
 viewModel :: Model -> View Action
-viewModel (Model (i,j) _ c s pixelSize l y gridSwitch gridstore title ) =
+viewModel (Model (i,j) _ c (a,b) pixelSize l y gridSwitch gridstore title ) =
   div_
   [ width_ "100%",
     toStyle [ 
@@ -35,6 +35,7 @@ viewModel (Model (i,j) _ c s pixelSize l y gridSwitch gridstore title ) =
   , display
   , colors
   , sizing
+  , dpad
   , div_ [ ] [ canvas_ [ id_ "hiddenCanvas", hidden_ "true", width_ "500", height_ "500" ] []]
   ]    
   where
@@ -43,35 +44,26 @@ viewModel (Model (i,j) _ c s pixelSize l y gridSwitch gridstore title ) =
     toStyle = style_ . M.fromList
 
     spectrum = div_ [toStyle [("grid-row", "1/2"), ("grid-column","1/3")]] [canvas_ [ id_ "spectrum", width_ "550", height_ "360", onLoad Begin, onClick PickSpectrum] []]
-
-    colorCircle c x y = g_ [] [ellipse_ [
-                                  cx_ x
-                                  , cy_ y
-                                  , onClick (PickColor c)
-                                  , style_ $ M.fromList [("fill", c)]
-                                  , rx_ "15"
-                                  , ry_ "15" ] []
-                              ]
-
-    canvas =
-      svg_ [ toStyle [ ("grid-row", "1/3"), ("grid-column","3/4"), ("border-style","solid")]
+    canvas = div_ [toStyle  [ ("grid-row", "1/2"), ("grid-column","3/4"), ("display", "flex"), ("align-items", "center") ] ] [
+      svg_ [ toStyle [("border-style","solid"), ("display", "block"), ("margin", "auto")]
            , height_ $ pack (show $ d) <> "0px"
            , width_ $ pack (show $ e) <> "0px"
            ]
       [g_ [] [cell
-                (case gridSwitch of
-                    FillSwitch -> [onClick $ Fill (k,j)]
-                    PaintSwitch -> [onMouseDown $ Selected (k,j)] --, onClick $ SwitchGrid DragSwitch]
-                    DragSwitch -> [Miso.onMouseOver $ Selected (k,j), Miso.onMouseUp $ SwitchGrid PaintSwitch]
-                    NoopSwitch -> []
-                )
-                (k,j)
-                (j*10)
-                (k*10)
-                ( Just $ y ! (k,j) )
-                (if s == (k,j) then "5" else "1")
-             | k <- [0..(d-1)], j <- [0..(e-1)] ]
+              (case gridSwitch of
+                  FillSwitch -> [onClick $ Fill (s,r)]
+                  PaintSwitch -> [onMouseDown $ Selected (s,r)] --, onClick $ SwitchGrid DragSwitch]
+                  --DragSwitch -> [Miso.onMouseOver $ Selected (k,j), Miso.onMouseUp $ SwitchGrid PaintSwitch]
+                  --NoopSwitch -> []
+              )
+              (s,r)
+              (r*10)
+              (s*10)
+              ( Just $ y ! (s,r) )
+              (if (a,b) == (s,r) then "5" else "1")
+             | s <- [0..(d-1)], r <- [0..(e-1)] ]
       ]
+      ]               
     cell :: (Show a) => [Attribute Action] --action(s) to do when interacted with
          -> a --an HTML id
          -> Int --horiz pos
@@ -86,15 +78,23 @@ viewModel (Model (i,j) _ c s pixelSize l y gridSwitch gridstore title ) =
             , width_ "9"
             , height_ "9"
             , fill_ $ maybe "rgba(0,0,0,0)" id r
-            , style_ 
-              $ M.fromList [
+            , toStyle [
                 ("stroke-width", w)
                 , ("stroke", "black")
                 ] 
             ] ) []
 
+    colorCircle c x y = g_ [] [ellipse_ [
+                                  cx_ x
+                                  , cy_ y
+                                  , onClick (PickColor c)
+                                  , style_ $ M.fromList [("fill", c)]
+                                  , rx_ "15"
+                                  , ry_ "15" ] []
+                              ]
+
     colors = div_ [ toStyle [("grid-row","2/3"),("grid-column","1/2") ] ] [
-      svg_ [style_ $ M.fromList [ ("border-style", "solid") ] , height_ "130px", width_ "280px"]
+      svg_ [toStyle [ ("border-style", "solid") ] , height_ "130px", width_ "280px"]
       [colorCircle "rgba(0,255,0,255)" "20" "28"
       , colorCircle "rgba(255,255,0,255)" "60" "24"
       , colorCircle "rgba(255,0,0,255)" "100" "21"
@@ -108,6 +108,25 @@ viewModel (Model (i,j) _ c s pixelSize l y gridSwitch gridstore title ) =
       
       ]
 
+    dpad = div_ [ toStyle [("grid-row", "2/3"),("grid-column", "3/4")] ] [
+      svg_ [ height_ "300px", width_ "300px" ] $
+        [ellipse_ [cx_ "170"
+                  , cy_ "90"
+                  , fill_ "gray"
+                  , rx_ "100"
+                  , ry_ "80" ] []
+        ] ++  zipWith (\(x,y) (m,n) ->
+                        ellipse_ [cx_ . pack . show $ x
+                                 , cy_ . pack . show $ y
+                                 , fill_ "green"
+                                 , onMouseDown $ Selected (a + m, b + n)
+                                 , rx_ "10"
+                                 , ry_ "10"
+                                 ] []) ((\x -> (80 * cos x + 170 , 60 * sin x + 90)) <$> [3 * pi / 4, pi .. 3 * pi]) [(1,-1),(0,-1),(-1,-1),(-1,0),(-1,1),(0,1),(1,1),(1,0)]
+          
+      ]
+
+    
     controls = div_ [ toStyle [("grid-row","3/4"),("grid-column","1/4")] ]
       [input_ [type_ "button", onClick Paint, value_ "Draw"] []
       , input_ [ type_ "button", onClick UpdatePic, value_ "Save"] []
